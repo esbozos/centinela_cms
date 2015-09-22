@@ -36,11 +36,7 @@
 </div>
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     {% if post.comments_status %}
-    <ul>
-        {% for comment in post.comments_set.all %}
-        <li>{{ comment.author }} - {{ comment.content }}</li>
-        {% endfor %}
-    </ul>
+        <div class="fb-comments" data-href="{url}" data-version="v2.3"></div>
     {% endif %}
 </div>
 <div id="rigth" class="col-md-3 col-xs-12">
