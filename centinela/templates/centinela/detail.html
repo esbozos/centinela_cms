@@ -20,7 +20,12 @@
 {% include "centinela/nav_sections.html" %}
 <div id="main" class="col-md-7 col-md-offset-1 col-xs-12">
     <h2>{{ post.title }}</h2>
-    <p><span class="label label-warning">{{ post.category.name }}</span> <small class="text-muted">{{ post.created_date }} - <span class="glyphicon glyphicon-eye-open"> </span> {{ post.views_count }}</small></p>
+    <p>
+        <small class="text-muted">
+               {{ post.author.get_full_name }} | {{ post.created_date }} | <span class="glyphicon glyphicon-eye-open"> </span> {{ post.views_count }}
+        </small>
+        <span class="label label-warning">{{ post.category.name }}</span>
+    </p>
     {% get_share_buttons as share %}
     {% for button in share.buttons %}
         {{ button.html_code|safe }}

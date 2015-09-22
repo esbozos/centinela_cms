@@ -2,26 +2,28 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import datetime
+import ckeditor.fields
+from django.conf import settings
 import django.utils.timezone
 from django.utils.timezone import utc
-import ckeditor.fields
+import datetime
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(verbose_name='name', max_length=250)),
-                ('slug', models.CharField(verbose_name='slug', max_length=250)),
-                ('menu_type', models.CharField(choices=[('none', 'None'), ('main', 'Main Menu'), ('news', 'News Section')], verbose_name='menu type', max_length=10, default='none')),
-                ('menu_order', models.IntegerField(verbose_name='menu_order', default=0)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
+                ('name', models.CharField(max_length=250, verbose_name='name')),
+                ('slug', models.CharField(max_length=100, verbose_name='slug')),
+                ('menu_type', models.CharField(max_length=10, verbose_name='menu type', default='none', choices=[('none', 'None'), ('main', 'Main Menu'), ('news', 'News Section')])),
+                ('menu_order', models.IntegerField(verbose_name='menu_order', default=10)),
             ],
             options={
                 'verbose_name': 'category',
@@ -31,11 +33,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Comments',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
                 ('content', models.TextField(verbose_name='content')),
                 ('created_date', models.DateTimeField(verbose_name='created', default=django.utils.timezone.now)),
-                ('author', models.CharField(verbose_name='author', max_length=250)),
-                ('status', models.CharField(choices=[('pending', 'Pending'), ('approved', 'Approved'), ('spam', 'Spam')], verbose_name='status', max_length=20, default='pending')),
+                ('author', models.CharField(max_length=250, verbose_name='author')),
+                ('status', models.CharField(max_length=20, verbose_name='status', default='pending', choices=[('pending', 'Pending'), ('approved', 'Approved'), ('spam', 'Spam')])),
             ],
             options={
                 'verbose_name': 'comment',
@@ -43,31 +45,23 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='Logs',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('action', models.CharField(max_length=20)),
-                ('value', models.TextField()),
-                ('create_date', models.DateTimeField(default=django.utils.timezone.now)),
-            ],
-        ),
-        migrations.CreateModel(
             name='Post',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('author', models.CharField(verbose_name='author', max_length=250)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
                 ('content', ckeditor.fields.RichTextField(verbose_name='content')),
-                ('status', models.CharField(choices=[('draft', 'Draft'), ('publish', 'Publish'), ('trash', 'Trash')], verbose_name='status', max_length=20, default='draft')),
-                ('title', models.CharField(verbose_name='title', max_length=250)),
-                ('type', models.CharField(choices=[('page', 'Page'), ('post', 'Post')], verbose_name='type', max_length=20, default='post')),
-                ('mime_type', models.CharField(null=True, verbose_name='mime_type', max_length=30)),
-                ('slug', models.SlugField(verbose_name='slug', max_length=100)),
-                ('menu_order', models.IntegerField(verbose_name='Menu Position', default=0)),
+                ('status', models.CharField(max_length=20, verbose_name='status', default='draft', choices=[('draft', 'Draft'), ('publish', 'Publish'), ('trash', 'Trash')])),
+                ('title', models.CharField(max_length=250, verbose_name='title')),
+                ('type', models.CharField(max_length=20, verbose_name='type', default='post', choices=[('page', 'Page'), ('post', 'Post')])),
+                ('mime_type', models.CharField(max_length=30, verbose_name='mime_type', null=True)),
+                ('slug', models.SlugField(max_length=100, verbose_name='slug')),
+                ('menu_order', models.IntegerField(verbose_name='Menu Position', default=10)),
+                ('url_link', models.CharField(max_length=200, verbose_name='url_path', blank=True, null=True)),
                 ('created_date', models.DateTimeField(verbose_name='created', default=django.utils.timezone.now)),
                 ('updated_date', models.DateTimeField(verbose_name='updated', default=django.utils.timezone.now)),
                 ('comment_status', models.BooleanField(verbose_name='Allow comments?', default=True)),
                 ('comment_count', models.IntegerField(verbose_name='comment_count', default=0)),
                 ('views_count', models.IntegerField(verbose_name='Views Count', default=0)),
+                ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
                 ('category', models.ForeignKey(to='centinela.Category')),
             ],
             options={
@@ -78,37 +72,59 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Slider',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('title', models.CharField(verbose_name='title', max_length=250)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
+                ('title', models.CharField(max_length=250, verbose_name='title', blank=True)),
                 ('image_file', models.ImageField(verbose_name='image', upload_to='sliders')),
                 ('created_date', models.DateTimeField(verbose_name='created', default=django.utils.timezone.now)),
-                ('link_target', models.CharField(verbose_name='link', blank=True, max_length=500)),
-                ('status', models.CharField(choices=[('active', 'Active'), ('Inactive', 'Inactive')], verbose_name='status', max_length=20, default='active')),
-                ('content', models.CharField(help_text='Text to show over slider', verbose_name='content', blank=True, max_length=250, default='')),
-                ('until_date', models.DateTimeField(verbose_name='until', default=datetime.datetime(2015, 10, 8, 6, 58, 28, 12816, tzinfo=utc))),
-                ('order', models.IntegerField(verbose_name='order', blank=True, default=10)),
+                ('link_target', models.CharField(max_length=500, verbose_name='link', blank=True)),
+                ('status', models.CharField(max_length=20, verbose_name='status', default='active', choices=[('active', 'Active'), ('Inactive', 'Inactive')])),
+                ('content', models.CharField(max_length=250, verbose_name='content', blank=True, default='', help_text='Text to show over slider')),
+                ('until_date', models.DateTimeField(verbose_name='until', default=datetime.datetime(2015, 10, 22, 5, 47, 8, 666133, tzinfo=utc))),
+                ('order', models.IntegerField(verbose_name='order', default=10, blank=True)),
+                ('location', models.CharField(max_length=20, verbose_name='location', default='home', choices=[('home', 'Home Page'), ('news', 'News Section')])),
             ],
         ),
         migrations.CreateModel(
-            name='Tags',
+            name='SocialShare',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=250)),
-                ('posts', models.ManyToManyField(to='centinela.Post')),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
+                ('name', models.CharField(max_length=100, verbose_name='name')),
+                ('html_code', models.TextField(verbose_name='html code', blank=True)),
+                ('js_code', models.TextField(verbose_name='js code', blank=True)),
+                ('status', models.CharField(max_length=20, verbose_name='status', default=(('active', 'Active'), ('Inactive', 'Inactive')), choices=[('active', 'Active'), ('Inactive', 'Inactive')])),
+                ('order', models.IntegerField(verbose_name='oder', default=10)),
             ],
+            options={
+                'verbose_name': 'social share',
+                'verbose_name_plural': 'social shares',
+            },
+        ),
+        migrations.CreateModel(
+            name='Theme',
+            fields=[
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
+                ('name', models.CharField(max_length=50, verbose_name='name')),
+                ('status', models.BooleanField(verbose_name='status', default=False)),
+                ('file_name', models.CharField(max_length=100, verbose_name='file name', help_text='file located in bootstrap/css folder')),
+                ('created_date', models.DateTimeField(verbose_name='created', default=django.utils.timezone.now)),
+            ],
+            options={
+                'verbose_name': 'theme',
+                'verbose_name_plural': 'themes',
+            },
         ),
         migrations.CreateModel(
             name='Widgets',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('title', models.CharField(verbose_name='title', max_length=250)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
+                ('title', models.CharField(max_length=250, verbose_name='title')),
                 ('image_file', models.ImageField(verbose_name='Image', blank=True, upload_to='linksImages')),
-                ('content', models.TextField(help_text='widget content, if image is set this will be hide', verbose_name='content', blank=True)),
+                ('content', models.TextField(verbose_name='content', blank=True, help_text='widget content, if image is set this will be hide')),
                 ('created_date', models.DateTimeField(verbose_name='creado', default=django.utils.timezone.now)),
-                ('link_target', models.CharField(verbose_name='link', blank=True, max_length=500)),
-                ('status', models.CharField(choices=[('active', 'Active'), ('Inactive', 'Inactive')], verbose_name='status', max_length=20, default=(('active', 'Active'), ('Inactive', 'Inactive')))),
-                ('until_date', models.DateTimeField(verbose_name='until', default=datetime.datetime(2015, 10, 8, 6, 58, 28, 13812, tzinfo=utc))),
-                ('order', models.IntegerField(verbose_name='order', blank=True, default=10)),
+                ('link_target', models.CharField(max_length=500, verbose_name='link', blank=True)),
+                ('status', models.CharField(max_length=20, verbose_name='status', default=(('active', 'Active'), ('Inactive', 'Inactive')), choices=[('active', 'Active'), ('Inactive', 'Inactive')])),
+                ('until_date', models.DateTimeField(verbose_name='until', default=datetime.datetime(2015, 10, 22, 5, 47, 8, 667140, tzinfo=utc))),
+                ('order', models.IntegerField(verbose_name='order', default=10, blank=True)),
             ],
             options={
                 'verbose_name': 'widget',

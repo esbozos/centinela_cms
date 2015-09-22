@@ -2,6 +2,7 @@
 import datetime
 
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils import timezone
 from django_countries.fields import CountryField
 from ckeditor.fields import RichTextField
@@ -82,7 +83,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    author = models.CharField(_('author'), max_length=250)
+    author = models.ForeignKey(User)
     content = RichTextField(_('content'))
     status = models.CharField(_('status'), max_length=20, choices=POST_STATUS_CHOICES, default=POST_STATUS_CHOICES[0][0])
     title = models.CharField(_('title'), max_length=250)

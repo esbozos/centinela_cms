@@ -23,9 +23,13 @@ class PostAdmin(admin.ModelAdmin):
         ('none', {'fields':['type', 'comment_status', 'menu_order', 'status']}),
     ]
     inlines = []
-    list_display = ('title', 'status', 'category', 'created_date', 'url_link', 'type', 'views_count', 'menu_order')
+    list_display = ('title', 'author', 'status', 'category', 'created_date', 'url_link', 'type', 'views_count', 'menu_order')
     list_filter = ['created_date', 'category', 'type', 'status']
     search_fields = ['title', 'content']
+
+    def save_model(self, request, obj, form, change):
+        obj.author = request.user
+        obj.save()
 
 
 class CommentsAdmin(admin.ModelAdmin):
