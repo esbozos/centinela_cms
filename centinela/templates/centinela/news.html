@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load centinela_column %}
+{% load staticfiles %}
+{% block content %}
+<div class="banner container-fluid col-md-10 col-md-offset-1" style="">
+    {% include "centinela/banners.html" %}
+</div>
+{% include "centinela/nav_sections.html" %}
+<div id="main" class="col-md-8 col-xs-12">
+    <div class="col-md-8 col-md-offset-1 col-sm-12">
+        {% for post in latest_post_list %}
+        {% if forloop.counter < midle %}
+        <div class="news_list_block col-md-12">
+            <div class="box10">
+                <span class="label label-warning">{{ post.category.name }}</span>
+                    <h2><a href="{% url 'centinela:detail' post.slug post.id  %}">{{ post.title }} </a></h2>
+                <div class="news_list_content">
+                    <div class="content"> {{ post.content | safe | truncatechars_html:300 }}
+                    </div>
+                    <a href="{% url 'centinela:detail' post.slug post.id %}">ver más</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        {% if forloop.counter == midle %}
+    </div>
+    {# close first column on news #}
+    <div class="col-md-3 col-sm-12">
+        {% endif %}
+        <div class="news_list_item col-md-12">
+            <div class="box10">
+                <div class="news_list_content">
+                    <a href="{% url 'centinela:detail' post.slug post.id  %}">
+                        <h5>{{ post.title }}</h5>
+                    </a>
+                    <div class="content" style="display: none;"> {{ post.content | safe | truncatechars_html:200 }}
+                    </div>
+                    <span class="label label-warning">{{ post.category.name }}</span>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <h2>No hay entradas que mostar</h2>
+        {% endfor %}
+    </div>
+    {# close second column on news #}
+    {# .... **Now the pagination section** .... #}
+    <div class="col-lg-12 text-center">
+        {% include "centinela/pagination.html" %}
+    </div>
+</div>
+<div id="rigth" class="col-md-3 col-sm-12">
+    {% get_more_read %}
+    {% get_widgets %}
+</div>
+{% endblock %}
+{% block stylesheet %}
+{{ block.super }}
+<link href="{% static 'css/banner.css' %}" rel="stylesheet" media="screen">
+{% endblock %}
+{% block javascript %}
+{{ block.super }}
+<script src="{% static 'js/banner.js' %}"></script>
+{% endblock %}

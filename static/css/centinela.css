@@ -1,0 +1,129 @@
+body { padding-top: 70px;}
+
+p {
+    //text-align: justify;
+}
+
+a:hover{
+    text-decoration: none;
+}
+.navIni{
+    font-size: 20px;
+    height: 20%;
+}
+
+#main {
+    z-index: 10;
+}
+
+#rigth {
+    z-index: 0;
+}
+
+#news .news_list_item{
+   height: 250px;
+}
+
+.news_list_block{
+ //   height: 400px;
+}
+
+.news_list_block, .news_list_item {
+    overflow: hidden;
+    padding: 10px;
+    border-bottom: 1px Solid #ccc;
+}
+
+/**
+.news_list_block a, .news_list_item a{
+    color: #333;
+}
+*/
+/**
+.news_list_block:hover, .news_list_item:hover{
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.news_list_block:hover a, .news_list_item:hover a {
+    color: #fff;
+}
+*/
+
+
+#news .news_list_content .newsImage {
+    min-width : 100%;
+    height: 130px;
+}
+
+/**
+.news_list_block .newsImage {
+    min-width : 100%;
+    //height: 200px;
+}
+
+#news .news_list_block .newsImage {
+    min-width : 100%;
+    height: 200px;
+}
+*/
+
+
+/**
+.box10 img {
+    width: 100%;
+    margin-top: 15px;
+}
+*/
+
+
+.view {
+    height: 120%;
+    padding-top: 40px;
+}
+
+#formalities {
+    background: url(/media/sliders/02-simon_o0yBhjf.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+#systems {
+    background: url(/media/sliders/02-plaza-bolivar_Ioo3sLy.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.content p{
+    text-align: justify;
+    font-size: 14px;
+}
+
+.carousel-caption {
+    z-index: 10;
+    /* background-color: rgba(0,0,0,0.3); */
+    color: #FFF;
+    width: 100%;
+    left: 0px;
+    text-shadow: 2px 2px 7px rgba(0,0,0,0.7);
+}
+
+.carousel-caption h1, .carousel-caption p{
+    color: #FFF;
+}
+
+.snood {
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+}
+
+.carousel-filter {
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.1);
+    color: #FFF;
+    width: 100%;
+    left: 0px;
+    height: 100%;
+    bottom: 0px;
+}

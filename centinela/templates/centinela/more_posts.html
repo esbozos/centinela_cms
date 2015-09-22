@@ -1,0 +1,21 @@
+    {% if category == 'all' %}
+    {% else %}
+        <h3 class="text-warning">{{ category }}</h3>
+    {% endif %}
+    <div class="list-group">
+        <h4 class="text-info">Lo más reciente</h4>
+    {% for post in more_recent %}
+        <a class="list-group-item" href="{% url 'centinela:detail' post.slug post.id %}">
+            <strong>{{ post.title }}</strong>
+        </a>
+    {% endfor %}
+        <h4 class="text-info">
+            Lo más leído
+        </h4>
+    {% for post in more_read %}
+        <a class="list-group-item" href="{% url 'centinela:detail' post.slug post.id  %}">
+            <small class="text-muted text-warning">({{ post.views_count }})</small>
+            <strong>{{ post.title }}</strong>
+        </a>
+    {% endfor %}
+    </div>

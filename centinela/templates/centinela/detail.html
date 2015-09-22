@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load centinela_column %}
+{% load centinela_socialshare %}
+{% load staticfiles %}
+<!-- # TODO: add form to comments, or facebook plugin? -->
+{% block title %}
+   {{ post.title }} - {{ block.super }}
+{% endblock %}
+{% block meta %}
+<meta property="og:url"                content="{% url 'centinela:detail' post.slug post.id %}" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="{{ post.title }}" />
+<meta property="og:description"        content="{{ post.content | striptags | truncatechars_html:100 }}" />
+<meta property="og:image"              content="" />
+{% endblock %}
+{% block content %}
+<div class="banner container-fluid col-md-10 col-md-offset-1" style="">
+    {% include "centinela/banners.html" %}
+</div>
+{% include "centinela/nav_sections.html" %}
+<div id="main" class="col-md-7 col-md-offset-1 col-xs-12">
+    <h2>{{ post.title }}</h2>
+    <p><span class="label label-warning">{{ post.category.name }}</span> <small class="text-muted">{{ post.created_date }} - <span class="glyphicon glyphicon-eye-open"> </span> {{ post.views_count }}</small></p>
+    {% get_share_buttons as share %}
+    {% for button in share.buttons %}
+        {{ button.html_code|safe }}
+    {% endfor %}
+    <hr class="feature-divider>">
+<div class="content">
+    <p>{{ post.content | safe }}</p>
+</div>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% if post.comments_status %}
+    <ul>
+        {% for comment in post.comments_set.all %}
+        <li>{{ comment.author }} - {{ comment.content }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+<div id="rigth" class="col-md-3 col-xs-12">
+    {% get_more_in_category post.category %}
+    {% get_widgets %}
+</div>
+{% endblock %}
+{% block stylesheet %}
+    {{ block.super }}
+    <link href="{% static 'css/banner.css' %}" rel="stylesheet" media="screen">
+{% endblock %}
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static 'js/detail.js' %}"></script>
+    <script src="{% static 'js/banner.js' %}" ></script>
+    {% get_share_buttons as share %}
+    {% for button in share.buttons %}
+        {{ button.js_code | safe }}
+    {% endfor %}
+{% endblock %}

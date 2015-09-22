@@ -1,0 +1,16 @@
+{% load centinela_menu %}
+{% get_sections as sections %}
+<div class="container container-fluid">
+<ul class="nav nav-pills">
+    <li {% if category == Null   %}class="active"{% endif %}">
+        <a href="{% url 'centinela:news' %}">Noticias</a>
+    </li>
+{% for s in sections %}
+    <li {% if category == s.slug %}class="active"{% endif %}
+        style="border-bottom: 2px Solid {% cycle 'yellowgreen' 'blueviolet' 'red' 'orange' 'darkcyan' 'darkturquoise' %};"
+        role="presentation">
+        <a href="{% url 'centinela:category_post_list' s.slug  %}">{{ s.name }}</a>
+    </li>
+{% endfor %}
+</ul>
+</div>

@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-05 23:43-0430\n"
+"PO-Revision-Date: 2015-09-05 23:15-0430\n"
+"Last-Translator: Norman Torres <ntorres@prospectiva.com.ve>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es-ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: centinela/models.py:16
+msgid "Main Menu"
+msgstr "Menu Principal"
+
+#: centinela/models.py:17
+msgid "News Section"
+msgstr "Sección de Noticias"
+
+#: centinela/models.py:26
+msgid "Draft"
+msgstr "borrador"
+
+#: centinela/models.py:27
+msgid "Publish"
+msgstr "publicado"
+
+#: centinela/models.py:28
+msgid "Trash"
+msgstr "papelera"
+
+#: centinela/models.py:32
+msgid "Page"
+msgstr "página"
+
+#: centinela/models.py:33
+msgid "Post"
+msgstr "Entrada"
+
+#: centinela/models.py:41
+msgid "Pending"
+msgstr "Pendiente"
+
+#: centinela/models.py:42
+msgid "Approved"
+msgstr "Aprobado"
+
+#: centinela/models.py:43
+msgid "Spam"
+msgstr "Spam"
+
+#: centinela/models.py:48
+msgid "Active"
+msgstr "Activo"
+
+#: centinela/models.py:49
+msgid "Inactive"
+msgstr "Inactivo"
+
+#: centinela/models.py:59
+msgid "name"
+msgstr "Nombre"
+
+#: centinela/models.py:60 centinela/models.py:77
+msgid "slug"
+msgstr "Slug"
+
+#: centinela/models.py:61
+msgid "menu type"
+msgstr "Tipo de Menu"
+
+#: centinela/models.py:67
+msgid "category"
+msgstr "Categoria"
+
+#: centinela/models.py:68
+msgid "categories"
+msgstr "Categorias"
+
+#: centinela/models.py:71
+msgid "author"
+msgstr "autor"
+
+#: centinela/models.py:72 centinela/models.py:129
+msgid "content"
+msgstr "Contenido"
+
+#: centinela/models.py:73 centinela/models.py:128
+msgid "status"
+msgstr "Estado"
+
+#: centinela/models.py:74 centinela/models.py:124
+msgid "title"
+msgstr "Título"
+
+#: centinela/models.py:75
+#, fuzzy
+#| msgid "menu type"
+msgid "type"
+msgstr "Tipo de Menu"
+
+#: centinela/models.py:76
+#, fuzzy
+#| msgid "menu type"
+msgid "mime_type"
+msgstr "Tipo de Menu"
+
+#: centinela/models.py:78
+msgid "Menu Position"
+msgstr "Posición en el Menu"
+
+#: centinela/models.py:79 centinela/models.py:126
+msgid "created"
+msgstr "creado"
+
+#: centinela/models.py:80
+msgid "updated"
+msgstr "actualizado"
+
+#: centinela/models.py:81
+msgid "Allow comments?"
+msgstr "¿Permitir Comentarios?"
+
+#: centinela/models.py:82
+msgid "comment_count"
+msgstr "Comentarios"
+
+#: centinela/models.py:84
+msgid "Views Count"
+msgstr "Contador de Vistas"
+
+#: centinela/models.py:125
+msgid "image"
+msgstr "Imagen"
+
+#: centinela/models.py:127
+msgid "link"
+msgstr "Vinculo"
+
+#: centinela/models.py:130
+msgid "vence"
+msgstr "Vence"

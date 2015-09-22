@@ -1,0 +1,18 @@
+    <div class="list-group">
+        {% for widget in widgets %}
+            {% if widget.image_file %}
+                <a class="list-group-item col-md-12 col-xs-6" href="{{ widget.link_target }}" target="_blank">
+                    <img class="img img-responsive" src="/media/{{ widget.image_file }}">
+                </a>
+            {% else %}
+                {% if widget.link_target %}
+                <a class="list-group-item col-md-12 col-xs-6" href="{{ widget.link_target }}" target="_blank">
+                    <h5>{{ widget.title }}</h5>
+                    {{ widget.content|safe }}
+                </a>
+                {% else %}
+                {{ widget.content|safe }}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>

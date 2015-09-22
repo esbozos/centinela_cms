@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-05 22:55-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:16
+msgid "Main Menu"
+msgstr "Menu Principal"
+
+#: models.py:17
+msgid "News Section"
+msgstr "Sección de Noticias"
+
+#: models.py:59
+msgid "name"
+msgstr "Nombre"
+
+#: models.py:60
+msgid "slug"
+msgstr "Slug"
+
+#: models.py:61
+msgid "menu type"
+msgstr "Tipo de Menu"
+
+#: models.py:67
+msgid "category"
+msgstr "Categoria"
+
+#: models.py:68
+msgid "categories"
+msgstr "Categorias"
+
+#: models.py:72
+msgid "content"
+msgstr "Contenido"
+
+#: models.py:73
+msgid "status"
+msgstr "Estado"
+
+#: models.py:74
+msgid "title"
+msgstr "Título"
+
+#: models.py:78
+msgid "Menu Position"
+msgstr "Posición en el Menu"
+
+#: models.py:81
+msgid "Allow comments?"
+msgstr "¿Permitir Comentarios?"
+
+#: models.py:84
+msgid "Views Count"
+msgstr "Contador de Vistas"

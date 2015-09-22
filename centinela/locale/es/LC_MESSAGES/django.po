@@ -1,0 +1,271 @@
+# -*- coding: utf-8 -*-
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-17 13:12-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: centinela/models.py:17
+msgid "Main Menu"
+msgstr "Menu Principal"
+
+#: centinela/models.py:18 centinela/models.py:23
+msgid "News Section"
+msgstr "Sección de Noticias"
+
+#: centinela/models.py:22
+#, fuzzy
+#| msgid "Page"
+msgid "Home Page"
+msgstr "Página de Inicio"
+
+#: centinela/models.py:31
+msgid "Draft"
+msgstr "Borrador"
+
+#: centinela/models.py:32
+msgid "Publish"
+msgstr "Publicado"
+
+#: centinela/models.py:33
+msgid "Trash"
+msgstr "Papelera"
+
+#: centinela/models.py:37
+msgid "Page"
+msgstr "Página"
+
+#: centinela/models.py:38
+msgid "Post"
+msgstr "Entrada"
+
+#: centinela/models.py:46
+msgid "Pending"
+msgstr "Pendiente"
+
+#: centinela/models.py:47
+msgid "Approved"
+msgstr "Aprobado"
+
+#: centinela/models.py:48
+msgid "Spam"
+msgstr "Spam"
+
+#: centinela/models.py:53
+msgid "Active"
+msgstr "Activo"
+
+#: centinela/models.py:54
+msgid "Inactive"
+msgstr "Inactivo"
+
+#: centinela/models.py:64 centinela/models.py:173 centinela/models.py:191
+msgid "name"
+msgstr "Nombre"
+
+#: centinela/models.py:65 centinela/models.py:87
+msgid "slug"
+msgstr "Slug"
+
+#: centinela/models.py:66
+msgid "menu type"
+msgstr "Tipo de Menu"
+
+#: centinela/models.py:67
+#, fuzzy
+#| msgid "order"
+msgid "menu_order"
+msgstr "Orden"
+
+#: centinela/models.py:76
+msgid "category"
+msgstr "Categoria"
+
+#: centinela/models.py:77
+msgid "categories"
+msgstr "Categorias"
+
+#: centinela/models.py:81 centinela/models.py:120
+msgid "author"
+msgstr "Autor"
+
+#: centinela/models.py:82 centinela/models.py:118 centinela/models.py:137
+#: centinela/models.py:153
+msgid "content"
+msgstr "Contenido"
+
+#: centinela/models.py:83 centinela/models.py:121 centinela/models.py:136
+#: centinela/models.py:156 centinela/models.py:176 centinela/models.py:192
+msgid "status"
+msgstr "Estado"
+
+#: centinela/models.py:84 centinela/models.py:132 centinela/models.py:151
+msgid "title"
+msgstr "Título"
+
+#: centinela/models.py:85
+msgid "type"
+msgstr "Tipo"
+
+#: centinela/models.py:86
+msgid "mime_type"
+msgstr "MIME TYPE"
+
+#: centinela/models.py:88
+msgid "Menu Position"
+msgstr "Posición del Menu"
+
+#: centinela/models.py:89
+msgid "url_path"
+msgstr "Ruta"
+
+#: centinela/models.py:90 centinela/models.py:119 centinela/models.py:134
+#: centinela/models.py:194
+msgid "created"
+msgstr "creado"
+
+#: centinela/models.py:91
+msgid "updated"
+msgstr "actualizado"
+
+#: centinela/models.py:92
+msgid "Allow comments?"
+msgstr "¿Permitir Comentarios?"
+
+#: centinela/models.py:93
+msgid "comment_count"
+msgstr "Comentarios"
+
+#: centinela/models.py:95
+msgid "Views Count"
+msgstr "Visitas"
+
+#: centinela/models.py:112
+msgid "post"
+msgstr "Entrada"
+
+#: centinela/models.py:113
+msgid "posts"
+msgstr "Entradas"
+
+#: centinela/models.py:127
+#, fuzzy
+#| msgid "comment_count"
+msgid "comment"
+msgstr "Comentarios"
+
+#: centinela/models.py:128
+#, fuzzy
+#| msgid "Allow comments?"
+msgid "comments"
+msgstr "¿Permitir Comentarios?"
+
+#: centinela/models.py:133
+msgid "image"
+msgstr "Imagen"
+
+#: centinela/models.py:135 centinela/models.py:155
+msgid "link"
+msgstr "Enlace"
+
+#: centinela/models.py:137
+msgid "Text to show over slider"
+msgstr "Texto a mostrar sobre el Slide"
+
+#: centinela/models.py:138 centinela/models.py:157
+msgid "until"
+msgstr "Hasta"
+
+#: centinela/models.py:139 centinela/models.py:158
+msgid "order"
+msgstr "Orden"
+
+#: centinela/models.py:140
+msgid "location"
+msgstr "Ubicación"
+
+#: centinela/models.py:152
+#, fuzzy
+#| msgid "image"
+msgid "Image"
+msgstr "Imagen"
+
+#: centinela/models.py:153
+msgid "widget content, if image is set this will be hide"
+msgstr ""
+"Contenido del Widget, si se ha subido una imagen este texto no se mostrará"
+
+#: centinela/models.py:154
+#, fuzzy
+#| msgid "created"
+msgid "creado"
+msgstr "creado"
+
+#: centinela/models.py:168
+msgid "widget"
+msgstr "Widget"
+
+#: centinela/models.py:169
+#, fuzzy
+#| msgid "widget"
+msgid "widgets"
+msgstr "Widget"
+
+#: centinela/models.py:174
+msgid "html code"
+msgstr "Código HTML"
+
+#: centinela/models.py:175
+msgid "js code"
+msgstr "Código JS"
+
+#: centinela/models.py:177
+msgid "oder"
+msgstr "Orden"
+
+#: centinela/models.py:186
+msgid "social share"
+msgstr "Social Share"
+
+#: centinela/models.py:187
+msgid "social shares"
+msgstr "Social Shares"
+
+#: centinela/models.py:193
+#, fuzzy
+#| msgid "name"
+msgid "file name"
+msgstr "Nombre de archivo"
+
+#: centinela/models.py:193
+msgid "file located in bootstrap/css folder"
+msgstr "Archivo ubicado en la carpeta bootstrap/css"
+
+#: centinela/models.py:200
+msgid "theme"
+msgstr "Tema"
+
+#: centinela/models.py:201
+msgid "themes"
+msgstr "Temas"
+
+#, fuzzy
+msgid "Category"
+msgstr "Categoria"
+
+#~ msgid "vence"
+#~ msgstr "Vence"

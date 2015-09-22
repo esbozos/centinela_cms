@@ -1,0 +1,22 @@
+{% load staticfiles %}
+{% if active_sliders_list %}
+    <div id="banner">
+        <ul>
+            {% for slider in active_sliders_list %}
+            {% if slider.is_active %}
+                <li {% if forloop.first %}
+                        class="active"
+                    {% endif %} data-count="{{ forloop.counter }}">
+                    {% if slider.link_target %}
+                        <a href="{{ slider.link_target }}" target="_blank">
+                        <img src="/media/{{ slider.image_file }}" />
+                        </a>
+                    {% else %}
+                        <img src="/media/{{ slider.image_file }}" />
+                    {% endif %}
+                </li>
+            {% endif %}
+      {% endfor %}
+        </ul>
+    </div>
+{% endif %}
