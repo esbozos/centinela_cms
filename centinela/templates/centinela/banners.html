@@ -1,8 +1,5 @@
 {% load staticfiles %}
-<div id="banner">
-        <ul>
-            <li>
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- Sky2 Automatic Prospectiva -->
                 <ins class="adsbygoogle"
                      style="display:block"
@@ -12,9 +9,10 @@
                 <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
-            </li>
-{% if active_sliders_list %}
 
+{% if active_sliders_list %}
+<div id="banner">
+        <ul>
             {% for slider in active_sliders_list %}
             {% if slider.is_active %}
                 <li {% if forloop.first %}
@@ -30,7 +28,7 @@
                 </li>
             {% endif %}
       {% endfor %}
-
-{% endif %}
     </ul>
 </div>
+{% endif %}
+
