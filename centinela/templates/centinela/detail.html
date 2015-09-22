@@ -36,7 +36,7 @@
 </div>
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     {% if post.comments_status == true %}
-        <div class="fb-comments" data-href="{{ request.build_absolute_uri|urlencode }}" data-version="v2.3"></div>
+        <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-version="v2.3"></div>
     {% endif %}
 </div>
 <div id="rigth" class="col-md-3 col-xs-12">
