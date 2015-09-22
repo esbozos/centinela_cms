@@ -139,7 +139,7 @@ class Slider(models.Model):
     created_date = models.DateTimeField(_('created'), default=timezone.now)
     link_target = models.CharField(_('link'), max_length=500, blank=True)
     status = models.CharField(_('status'), max_length=20, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
-    content = models.CharField(_('content'), max_length=250, default='', blank=True, help_text=_('Text to show over slider'))
+    content = models.CharField(_('content'), max_length=500, default='', blank=True, help_text=_('Text to show over slider'))
     until_date = models.DateTimeField(_('until'), default=timezone.now() + datetime.timedelta(days=settings.DEFAULT_UNTIL_DAYS))
     order = models.IntegerField(_('order'), default=10, blank=True)
     location = models.CharField(_('location'), max_length=20, choices=SLIDER_LOCATION_CHOICES, default=SLIDER_LOCATION_CHOICES[0][0])

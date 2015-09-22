@@ -1,7 +1,19 @@
 {% load staticfiles %}
-{% if active_sliders_list %}
-    <div id="banner">
+<div id="banner">
         <ul>
+            <li>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Sky1 Prospectiva -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-7406359102676080"
+                     data-ad-slot="3925791566"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </li>
+{% if active_sliders_list %}
+
             {% for slider in active_sliders_list %}
             {% if slider.is_active %}
                 <li {% if forloop.first %}
@@ -17,6 +29,7 @@
                 </li>
             {% endif %}
       {% endfor %}
-        </ul>
-    </div>
+
 {% endif %}
+    </ul>
+</div>
