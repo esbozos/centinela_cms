@@ -30,7 +30,7 @@ class PostAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if not hasattr(obj, 'author'):
             obj.author = request.user
-            obj.save()
+        obj.save()
 
 
 class CommentsAdmin(admin.ModelAdmin):
