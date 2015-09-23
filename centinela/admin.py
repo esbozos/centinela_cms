@@ -28,8 +28,9 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'content']
 
     def save_model(self, request, obj, form, change):
-        obj.author = request.user
-        obj.save()
+        if not hasattr(obj, 'author'):
+            obj.author = request.user
+            obj.save()
 
 
 class CommentsAdmin(admin.ModelAdmin):
