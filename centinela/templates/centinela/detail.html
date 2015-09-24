@@ -18,17 +18,13 @@
     {% include "centinela/banners.html" %}
 </div>
 {% include "centinela/nav_sections.html" %}
-<div id="main" class="col-md-7 col-md-offset-1 col-xs-12" itemscope itemtype="http://schema.org/ItemList http://schema.org/CreativeWork>
+<div id="main" class="col-md-7 col-md-offset-1 col-xs-12" itemscope itemtype="http://schema.org/newsArticle">
     <h2>{{ post.title }}</h2>
     <p>
         <small class="text-muted">
                <author itemprop="author">{{ post.author.get_full_name }}</author> |
                <time datetime="{{ post.created_date|date:'c' }}" itemprop="datePublished">{{ post.created_date }} |
-               <div itemprop="interactionCount" itemscope itemtype="http://schema.org/InteractionCounter">
-                    <meta itemprop="interactionType" content="http://schema.org/ListenAction" />
-                    <meta itemprop="userInteractionCount" content="11700" />
-                  </div>
-                   <span class="glyphicon glyphicon-eye-open"> </span> {{ post.views_count }}
+               <span class="glyphicon glyphicon-eye-open"> </span> {{ post.views_count }}
         </small>
         <span class="label label-warning">{{ post.category.name }}</span>
     </p>

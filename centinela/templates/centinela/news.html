@@ -7,11 +7,11 @@
 </div>
 {% include "centinela/nav_sections.html" %}
 <div id="main" class="col-md-8 col-xs-12" itemscope itemtype="http://schema.org/ItemList http://schema.org/CreativeWork">
-    <div class="col-md-8 col-md-offset-1 col-sm-12">
+    <div class="col-md-8 col-md-offset-1 col-sm-12" itemscope itemtype="http://schema.org/ItemList">
         {% for post in latest_post_list %}
         {% if forloop.counter < midle %}
         <div class="news_list_block col-md-12" itemscope itemtype="http://schema.org/Article">
-            <div class="box10">
+            <div class="box10" itemprop="itemListElement">
                 <span class="label label-warning">{{ post.category.name }}</span>
                     <h2 itemprop="headline"><a href="{% url 'centinela:detail' post.slug post.id  %}">{{ post.title }} </a></h2>
                     <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished">{{ post.created_date }}</time> | <author itemprop="author">{{ post.author.get_full_name }}</author>
@@ -26,10 +26,10 @@
         {% if forloop.counter == midle %}
     </div>
     {# close first column on news #}
-    <div class="col-md-3 col-sm-12">
+    <div class="col-md-3 col-sm-12" itemscope itemtype="http://schema.org/ItemList">
         {% endif %}
         <div class="news_list_item col-md-12" itemscope itemtype="http://schema.org/Article">
-            <div class="box10">
+            <div class="box10" itemprop="itemListElement">
                 <div class="news_list_content">
                     <a href="{% url 'centinela:detail' post.slug post.id  %}">
                         <h5 itemprop="headline">{{ post.title }}</h5>
