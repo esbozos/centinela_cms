@@ -127,3 +127,10 @@ a:hover{
     height: 100%;
     bottom: 0px;
 }
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    margin-top: 10px;
+}
