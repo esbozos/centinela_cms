@@ -6,16 +6,17 @@
     {% include "centinela/banners.html" %}
 </div>
 {% include "centinela/nav_sections.html" %}
-<div id="main" class="col-md-8 col-xs-12">
+<div id="main" class="col-md-8 col-xs-12" itemscope itemtype="http://schema.org/ItemList http://schema.org/CreativeWork">
     <div class="col-md-8 col-md-offset-1 col-sm-12">
         {% for post in latest_post_list %}
         {% if forloop.counter < midle %}
-        <div class="news_list_block col-md-12">
+        <div class="news_list_block col-md-12" itemscope itemtype="http://schema.org/Article">
             <div class="box10">
                 <span class="label label-warning">{{ post.category.name }}</span>
-                    <h2><a href="{% url 'centinela:detail' post.slug post.id  %}">{{ post.title }} </a></h2>
+                    <h2 itemprop="headline"><a href="{% url 'centinela:detail' post.slug post.id  %}">{{ post.title }} </a></h2>
+                    <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished">{{ post.created_date }}</time> | <author itemprop="author">{{ post.author.get_full_name }}</author>
                 <div class="news_list_content">
-                    <div class="content"> {{ post.content | safe | truncatechars_html:300 }}
+                    <div class="content" itemprop="description"> {{ post.content | safe | truncatechars_html:300 }}
                     </div>
                     <a href="{% url 'centinela:detail' post.slug post.id %}">ver más</a>
                 </div>
@@ -27,11 +28,11 @@
     {# close first column on news #}
     <div class="col-md-3 col-sm-12">
         {% endif %}
-        <div class="news_list_item col-md-12">
+        <div class="news_list_item col-md-12" itemscope itemtype="http://schema.org/Article">
             <div class="box10">
                 <div class="news_list_content">
                     <a href="{% url 'centinela:detail' post.slug post.id  %}">
-                        <h5>{{ post.title }}</h5>
+                        <h5 itemprop="headline">{{ post.title }}</h5>
                     </a>
                     <div class="content" style="display: none;"> {{ post.content | safe | truncatechars_html:200 }}
                     </div>
