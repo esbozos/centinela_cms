@@ -10,7 +10,7 @@
     <div class="col-md-8 col-md-offset-1 col-sm-12">
         {% for post in latest_post_list %}
         {% if forloop.counter < midle %}
-        <div class="news_list_block col-md-12" itemscope itemtype="http://schema.org/Article">
+        <div class="news_list_block col-md-12" itemscope itemtype="http://schema.org/NewsArticle"">
             <div class="box10">
                 <span class="label label-warning">{{ post.category.name }}</span>
                     <h2 itemprop="headline"><a href="{% url 'centinela:detail' post.slug post.id  %}">{{ post.title }} </a></h2>
