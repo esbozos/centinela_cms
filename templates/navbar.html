@@ -31,11 +31,19 @@
           </li>
           {% endfor %}
       </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Buscar">
-        </div>
-      </form>
+      <script>
+        (function() {
+          var cx = '017840085277599694718:a3seh5vpflw';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+              '//cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:searchbox-only></gcse:searchbox-only>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
