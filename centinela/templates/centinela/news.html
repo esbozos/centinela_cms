@@ -10,9 +10,9 @@
     <div class="col-md-8 col-md-offset-1 col-sm-12">
         {% for post in latest_post_list %}
         {% if forloop.counter < midle %}
-        <div class="news_list_block col-md-12" itemscope itemtype="http://schema.org/NewsArticle"">
+        <div class="news_list_block col-md-12" itemscope itemtype="http://schema.org/NewsArticle">
             <div class="box10">
-                <span class="label label-warning">{{ post.category.name }}</span>
+                <span class="label label-warning" itemprop="mainEntityOfPage">{{ post.category.name }}</span>
                     <h2 itemprop="headline"><a href="{% url 'centinela:detail' post.slug post.id  %}">{{ post.title }} </a></h2>
                     <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished">{{ post.created_date }}</time> | <author itemprop="author">{{ post.author.get_full_name }}</author>
                 <div class="news_list_content">
@@ -28,15 +28,17 @@
     {# close first column on news #}
     <div class="col-md-3 col-sm-12" >
         {% endif %}
-        <div class="news_list_item col-md-12" itemscope itemtype="http://schema.org/Article">
+        <div class="news_list_item col-md-12" itemscope itemtype="http://schema.org/NewsArticle">
             <div class="box10">
                 <div class="news_list_content">
                     <a href="{% url 'centinela:detail' post.slug post.id  %}">
                         <h5 itemprop="headline">{{ post.title }}</h5>
                     </a>
+                    <time display="none" datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished">{{ post.created_date }}</time> |
+                    <author display="none" itemprop="author">{{ post.author.get_full_name }}</author>
                     <div class="content" style="display: none;"> {{ post.content | safe | truncatechars_html:200 }}
                     </div>
-                    <span class="label label-warning">{{ post.category.name }}</span>
+                    <span itemprop="mainEntityOfPage" class="label label-warning">{{ post.category.name }}</span>
                 </div>
             </div>
         </div>
