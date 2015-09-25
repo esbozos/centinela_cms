@@ -14,16 +14,11 @@
         <meta name=viewport content="width=device-width, initial-scale=1">
         {% block meta %}
         {% endblock %}
-        {% block stylesheet %}
-            {% get_theme as theme %}
+        {% get_theme as theme %}
             {% with 'bootstrap/css/'|add:theme.file_name as bootstraptheme %}
             <link href="{% static bootstraptheme %}" rel="stylesheet" media="screen">
             {% endwith %}
-            <link href="{% static 'font-awesome-4.4.0/css/font-awesome.min.css' %}" rel="stylesheet" media="screen">
-            <link href="{% static 'bootstrap/css/carousel.css' %}" rel="stylesheet" media="screen">
-            <link href="{% static 'css/fonts.css' %}" rel="stylesheet" media="screen">
-            <link href="{% static 'css/centinela.css' %}" rel="stylesheet" media="screen">
-    {% endblock %}
+
         <link rel="icon" href="{% static 'images/favicon.ico' %}?v=1.1">
         <script type="application/ld+json">
         {
@@ -43,6 +38,12 @@
     	{% endblock %}
         {% block footer %}
             {% include "footer.html" %}
+    {% endblock %}
+        {% block stylesheet %}
+            <link href="{% static 'font-awesome-4.4.0/css/font-awesome.min.css' %}" rel="stylesheet" media="screen">
+            <link href="{% static 'bootstrap/css/carousel.css' %}" rel="stylesheet" media="screen">
+            <link href="{% static 'css/fonts.css' %}" rel="stylesheet" media="screen">
+            <link href="{% static 'css/centinela.css' %}" rel="stylesheet" media="screen">
     {% endblock %}
     {% block javascript %}
     	<script src="{% static 'jquery/jquery-1.11.3.min.js' %}"></script>
