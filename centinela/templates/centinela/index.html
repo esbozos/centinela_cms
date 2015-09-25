@@ -97,3 +97,10 @@
     </div>
 </div>
 {% endblock %}
+
+{% block stylesheet %}
+    {{ block.super }}
+            <link href="{% static 'font-awesome-4.4.0/css/font-awesome.min.css' %}" rel="stylesheet" media="screen">
+            <link href="{% static 'css/fonts.css' %}" rel="stylesheet" media="screen">
+            <link href="{% static 'bootstrap/css/carousel.css' %}" rel="stylesheet" media="screen">
+{% endblock %}
