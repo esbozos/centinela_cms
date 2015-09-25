@@ -134,3 +134,37 @@ a:hover{
     float: none;
     margin-top: 10px;
 }
+.banner {
+    max-height: 250px; overflow: hidden; margin-bottom: 20px;
+}
+#banner {
+  position: relative;
+  overflow: hidden;
+}
+
+#banner ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  list-style: none;
+}
+
+#banner ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  background: #ccc;
+  text-align: center;
+}
+
+#banner img {
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    max-height: 250px;
+}
