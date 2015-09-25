@@ -75,6 +75,9 @@ class SocialShareAdmin(admin.ModelAdmin):
 
 class ThemeAdmin(admin.ModelAdmin):
     model = Theme
+    fieldsets = [
+        ('none', {'fields':['name', 'file_name', 'status']})
+    ]
     list_display = ('name', 'status', 'created_date', 'file_name')
     list_filter = ('status',)
 

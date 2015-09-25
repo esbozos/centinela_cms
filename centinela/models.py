@@ -194,7 +194,7 @@ class SocialShare(models.Model):
 
 class Theme(models.Model):
     name = models.CharField(_('name'), max_length=50)
-    status = models.BooleanField(_('status'), default=False)
+    status = models.BooleanField(_('active'), default=False)
     file_name = models.CharField(_('file name'), max_length=100, help_text=_('file located in bootstrap/css folder'))
     created_date = models.DateTimeField(_('created'), default=timezone.now)
 
