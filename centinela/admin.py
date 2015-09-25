@@ -76,7 +76,7 @@ class SocialShareAdmin(admin.ModelAdmin):
 class ThemeAdmin(admin.ModelAdmin):
     model = Theme
     list_display = ('name', 'status', 'created_date', 'file_name')
-    list_filter = ('created_date', 'status')
+    list_filter = ('status')
 
 
 admin.site.register(Post, PostAdmin)
