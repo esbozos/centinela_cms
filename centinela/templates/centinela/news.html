@@ -40,7 +40,7 @@
                     <a href="{% url 'centinela:detail' post.slug post.id  %}">
                         <h5 itemprop="headline">{{ post.title }}</h5>
                     </a>
-                    <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished" hidden>{{ post.created_date }}</time> |
+                    <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished" hidden>{{ post.created_date }}</time>
                     <author  itemprop="author" hidden>{{ post.author.get_full_name }}</author>
                     <div class="content" style="display: none;"> {{ post.content | safe | truncatechars_html:200 }}
                     </div>
