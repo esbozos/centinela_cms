@@ -17,7 +17,7 @@
                     <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished">{{ post.created_date }}</time> | <author itemprop="author">{{ post.author.get_full_name }}</author>
                 <div class="news_list_content">
                     {% if post.image %}
-                    <img class="img" src="{{ post.image }}" itemprop="image"/>
+                    <img class="img img-responsive" src="{{ post.image }}" itemprop="image"/>
                     {% endif %}
                     <div class="content" itemprop="description"> {{ post.content | safe | truncatechars_html:300 }}
                     </div>
@@ -35,7 +35,7 @@
             <div class="box10">
                 <div class="news_list_content">
                     {% if post.image %}
-                    <img class="img" src="{{ post.image }}" itemprop="image"/>
+                    <img class="img img-responsive" src="{{ post.image }}" itemprop="image"/>
                     {% endif %}
                     <a href="{% url 'centinela:detail' post.slug post.id  %}">
                         <h5 itemprop="headline">{{ post.title }}</h5>
