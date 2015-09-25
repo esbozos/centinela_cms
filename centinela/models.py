@@ -4,7 +4,6 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django_countries.fields import CountryField
 from ckeditor.fields import RichTextField
 from django.template import defaultfilters
 from django.conf import settings
@@ -88,6 +87,7 @@ class Post(models.Model):
     status = models.CharField(_('status'), max_length=20, choices=POST_STATUS_CHOICES, default=POST_STATUS_CHOICES[0][0])
     title = models.CharField(_('title'), max_length=250)
     type = models.CharField(_('type'), max_length=20, choices=POST_TYPE_CHOICES, default=POST_TYPE_CHOICES[1][0])
+    image = models.CharField(_('image'), max_length=250, blank=True, null=True)
     mime_type = models.CharField(_('mime_type'), max_length=30, null=True)
     slug = models.SlugField(_('slug'), max_length=100)
     menu_order = models.IntegerField(_('Menu Position'), default=10)

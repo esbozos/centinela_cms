@@ -11,26 +11,24 @@ $(document).ready(function() {
         $(this).remove();
     });
 
-    $('.news_list_item').find('img').each(function(){
+    $('.news_list_item .content').find('img').each(function(){
             newsImage = $('<img>');
             newsImage.attr('src', $(this).attr('src'));
             newsImage.attr('itemprop', 'image');
             newsImage.addClass('newsImage img img-responsive');
-            $(this).parents('.news_list_content').prepend(newsImage);
+            //$(this).parents('.news_list_content').prepend(newsImage);
             $(this).hide();
         });
 
-
-
-
-    $('.news_list_block').find('img').each(function(){
+    $('.news_list_block .content').find('img').each(function(){
             newsImage = $('<img>');
             newsImage.attr('src', $(this).attr('src'));
             newsImage.attr('itemprop', 'image');
             newsImage.addClass('newsImage img img-responsive');
-            $(this).parents('.news_list_content').prepend(newsImage);
+            //$(this).parents('.news_list_content').prepend(newsImage);
             $(this).hide();
         });
+
 
     // activa el slider
     //$('.carousel').carousel();

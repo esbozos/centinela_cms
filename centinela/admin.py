@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Post, Category, Comments, Slider, Widgets, SocialShare, Theme
 from django.conf import settings
+from bs4 import BeautifulSoup
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -30,6 +31,9 @@ class PostAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if not hasattr(obj, 'author'):
             obj.author = request.user
+        content = BeautifulSoup(obj.content)
+        img_link = content.find_all('img')[0].get('src')
+        obj.image = img_link
         obj.save()
 
 

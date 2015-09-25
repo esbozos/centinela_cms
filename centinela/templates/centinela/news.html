@@ -16,6 +16,9 @@
                     <h2 itemprop="headline"><a href="{% url 'centinela:detail' post.slug post.id  %}">{{ post.title }} </a></h2>
                     <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished">{{ post.created_date }}</time> | <author itemprop="author">{{ post.author.get_full_name }}</author>
                 <div class="news_list_content">
+                    {% if post.image %}
+                    <img class="img" src="{{ post.image }}" itemprop="image"/>
+                    {% endif %}
                     <div class="content" itemprop="description"> {{ post.content | safe | truncatechars_html:300 }}
                     </div>
                     <a href="{% url 'centinela:detail' post.slug post.id %}">ver más</a>
@@ -31,11 +34,14 @@
         <div class="news_list_item col-md-12" itemscope itemtype="http://schema.org/NewsArticle">
             <div class="box10">
                 <div class="news_list_content">
+                    {% if post.image %}
+                    <img class="img" src="{{ post.image }}" itemprop="image"/>
+                    {% endif %}
                     <a href="{% url 'centinela:detail' post.slug post.id  %}">
                         <h5 itemprop="headline">{{ post.title }}</h5>
                     </a>
-                    <time display="none" datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished">{{ post.created_date }}</time> |
-                    <author display="none" itemprop="author">{{ post.author.get_full_name }}</author>
+                    <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished" hidden>{{ post.created_date }}</time> |
+                    <author  itemprop="author" hidden>{{ post.author.get_full_name }}</author>
                     <div class="content" style="display: none;"> {{ post.content | safe | truncatechars_html:200 }}
                     </div>
                     <span itemprop="mainEntityOfPage" class="label label-warning">{{ post.category.name }}</span>
