@@ -1,21 +1,46 @@
-    {% if category == 'all' %}
-    {% else %}
-        <h3 class="text-warning">{{ category }}</h3>
-    {% endif %}
-    <div class="list-group">
-        <h4 class="text-info">Lo más reciente</h4>
+{% if category == 'all' %}
+{% else %}
+<h3 class="text-warning">{{ category }}</h3>
+{% endif %}
+<div class="list-group">
+
+    <h4 class="text-info">Lo más reciente</h4>
     {% for post in more_recent %}
-        <a class="list-group-item" href="{% url 'centinela:detail' post.slug post.id %}">
-            <strong>{{ post.title }}</strong>
-        </a>
+    <a class="list-group-item" href="{% url 'centinela:detail' post.slug post.id %}" itemscope
+       itemtype="http://schema.org/NewsArticle">
+        <div class="row">
+            <div class="col-xs-3">
+                {% if post.image %}
+                <img src="{{ post.image }}" class="img img-responsive" itemprop="image"></img>
+                {% endif %}
+            </div>
+            <div class="col-xs-7">
+                <strong itemprop="headline">{{ post.title }}</strong>
+                <author itemprop="author" hidden>{{ post.author.get_full_name }}</author>
+                <time datetime="{{ post.created_date|date:'c' }}" itemprop="datePublished" hidden></time>
+            </div>
+        </div>
+    </a>
     {% endfor %}
-        <h4 class="text-info">
-            Lo más leído
-        </h4>
+    <h4 class="text-info">
+        Lo más leído
+    </h4>
     {% for post in more_read %}
-        <a class="list-group-item" href="{% url 'centinela:detail' post.slug post.id  %}">
+    <a class="list-group-item" href="{% url 'centinela:detail' post.slug post.id  %}" itemscope
+       itemtype="http://schema.org/NewsArticle">
+        <div class="row">
+        <div class="col-xs-3">
+            {% if post.image %}
+            <img src="{{ post.image }}" class="img img-responsive" itemprop="image"></img>
+            {% endif %}
+        </div>
+        <div class="col-xs-7">
             <small class="text-muted text-warning">({{ post.views_count }})</small>
-            <strong>{{ post.title }}</strong>
-        </a>
+            <strong itemprop="headline">{{ post.title }}</strong>
+            <author itemprop="author" hidden>{{ post.author.get_full_name }}</author>
+            <time datetime="{{ post.created_date|date:'c' }}" itemprop="datePublished" hidden></time>
+        </div>
+        </div>
+    </a>
     {% endfor %}
-    </div>
+</div>
