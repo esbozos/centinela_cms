@@ -29,9 +29,13 @@
         <a itemprop="mainEntityOfPage" href="{% url 'centinela:category_post_list' post.category.slug %}" class="label label-warning">{{ post.category.name }}</a>
     </p>
     {% get_share_buttons as share %}
+    <table>
+        <tr>
     {% for button in share.buttons %}
-        {{ button.html_code|safe }}
+        <td>{{ button.html_code|safe }}</td>
     {% endfor %}
+        </tr>
+     </table>
     <hr class="feature-divider>">
     {% if post.image %}
     <image src="{{ post.image }}" itemprop="image" hidden></image>
