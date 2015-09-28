@@ -14,12 +14,13 @@ class IndexView(generic.ListView):
     model = Post
     template_name = 'centinela/index.html'
     context_object_name = 'latest_post_list'
-    paginate_by = settings.PAGINATE_BY
+    paginate_by = settings.CENTINELA['PAGINATE_BY']
 
     def get_context_data(self):
         context = super(IndexView, self).get_context_data()
         sliders = Slider.objects.filter(location='home').order_by('order')
         context['active_sliders_list'] = sliders
+        context['site'] = settings.CENTINELA
         return context
 
     def get_queryset(self):
@@ -37,6 +38,7 @@ def detail(request, slug, post_id):
     return render(request, 'centinela/detail.html', {
         'post': p,
         'active_sliders_list': sliders,
+        'site': settings.CENTINELA,
     })
 
 
@@ -51,6 +53,7 @@ def page(request, category, slug, post_id):
     return render(request, 'centinela/detail.html', {
         'post': p,
         'active_sliders_list': sliders,
+        'site': settings.CENTINELA,
     })
 
 
@@ -58,12 +61,13 @@ class NewsView(generic.ListView):
     model = Post
     template_name = 'centinela/news.html'
     context_object_name = 'latest_post_list'
-    paginate_by = settings.PAGINATE_BY
+    paginate_by = settings.CENTINELA['PAGINATE_BY']
 
     def get_context_data(self):
         context = super(NewsView, self).get_context_data()
-        middle = settings.PAGINATE_BY / 2
+        middle = settings.CENTINELA['PAGINATE_BY'] / 2
         context['midle'] = middle
+        context['site'] = settings.CENTINELA
         sliders = Slider.objects.filter(location='news').order_by('order')
         context['active_sliders_list'] = sliders
 
@@ -77,18 +81,19 @@ class CategoryPostList(generic.ListView):
     model = Post
     template_name = 'centinela/news.html'
     context_object_name = 'latest_post_list'
-    paginate_by = settings.PAGINATE_BY
+    paginate_by = settings.CENTINELA['PAGINATE_BY']
 
     def get_success_url(self):
         return reverse('category_post_list')
 
     def get_context_data(self):
         context = super(CategoryPostList, self).get_context_data()
-        middle = settings.PAGINATE_BY / 2
+        middle = settings.CENTINELA['PAGINATE_BY'] / 2
         context['midle'] = middle
         context['category'] = self.kwargs['category']
         sliders = Slider.objects.filter(location='news').order_by('order')
         context['active_sliders_list'] = sliders
+        context['site'] = settings.CENTINELA
         return context
 
     def get_queryset(self):

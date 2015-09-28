@@ -7,7 +7,7 @@ register = template.Library()
 
 @register.assignment_tag
 def get_title():
-    return {'title': settings.SITE_TITLE}
+    return {'title': settings.CENTINELA['SITE_TITLE']}
 
 
 @register.assignment_tag
