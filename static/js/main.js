@@ -11,6 +11,10 @@ $(document).ready(function() {
         $(this).remove();
     });
 
+    $('iframe').each(function(){
+        $(this).addClass('embed-responsive-item');
+    });
+
     $('.news_list_item .content').find('img').each(function(){
             newsImage = $('<img>');
             newsImage.attr('src', $(this).attr('src'));

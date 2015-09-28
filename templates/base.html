@@ -15,11 +15,11 @@
     {% block meta %}
     {% endblock %}
     {% block stylesheet %}
-        {% get_theme as theme %}
-        {% with 'bootstrap/css/'|add:theme.file_name as bootstraptheme %}
-        <link href="{% static bootstraptheme %}" rel="stylesheet" media="screen">
-        {% endwith %}
-        <link href="{% static 'css/centinela.css' %}" rel="stylesheet" media="screen">
+    {% get_theme as theme %}
+    {% with 'bootstrap/css/'|add:theme.file_name as bootstraptheme %}
+    <link href="{% static bootstraptheme %}" rel="stylesheet" media="screen">
+    {% endwith %}
+    <link href="{% static 'css/centinela.css' %}" rel="stylesheet" media="screen">
     {% endblock %}
     <link rel="icon" href="{% static 'images/favicon.ico' %}?v=1.1">
     <script type="application/ld+json">
@@ -30,22 +30,27 @@
           "alternateName" : "Prospectiva Venezuela C.A.",
           "url" : "http://www.prospectiva.com.ve"
         }
-
     </script>
 </head>
 <body>
 {% block nav %}
-    {% include "navbar.html" %}
+{% include "navbar.html" %}
 {% endblock %}
-{% block content %}
-{% endblock %}
-{% block footer %}
-    {% include "footer.html" %}
-{% endblock %}
+<div class="container-fluid">
+    <div class="row">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="row">
+        {% block footer %}
+        {% include "footer.html" %}
+        {% endblock %}
+    </div>
+</div>
 {% block javascript %}
-    <script src="{% static 'jquery/jquery-1.11.3.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'jquery/jquery-1.11.3.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
 </body>
 </html>

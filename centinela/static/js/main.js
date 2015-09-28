@@ -11,6 +11,10 @@ $(document).ready(function() {
         $(this).remove();
     });
 
+    $('iframe').each(function(){
+        $(this).addClass('embed-responsive-item');
+    });
+
     $('.news_list_item .content').find('img').each(function(){
             newsImage = $('<img>');
             newsImage.attr('src', $(this).attr('src'));
@@ -114,4 +118,17 @@ jQuery(document).ready(function ($) {
         moveRight();
     });
 
+});
+
+$(document).ready(function() {
+   $('.content').find('img').each(function(){
+        var max = $(this).parents('.content').width();
+        var oldStyle = $(this).attr('style');
+        $(this).attr('style', oldStyle + '; height: auto; margin: 10px;');
+        $(this).addClass('img img-responsive img-thumbnail');
+    });
+
+    $('table').each(function(){
+        $(this).addClass('table table-bordered table-striped table-hover');
+    });
 });

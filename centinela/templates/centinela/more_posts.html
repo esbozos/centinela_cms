@@ -11,10 +11,10 @@
         <div class="row">
             <div class="col-xs-3">
                 {% if post.image %}
-                <img src="{{ post.image }}" class="img img-responsive" itemprop="image"></img>
+                <img src="{{ post.image }}" class="img-fit img img-responsive" itemprop="image"></img>
                 {% endif %}
             </div>
-            <div class="col-xs-9">
+            <div class="col-xs-9 more-headline">
                 <strong itemprop="headline">{{ post.title }}</strong>
                 <author itemprop="author" hidden>{{ post.author.get_full_name }}</author>
                 <time datetime="{{ post.created_date|date:'c' }}" itemprop="datePublished" hidden></time>
@@ -31,10 +31,10 @@
         <div class="row">
         <div class="col-xs-3">
             {% if post.image %}
-            <img src="{{ post.image }}" class="img img-responsive" itemprop="image"></img>
+            <img src="{{ post.image }}" class="img-fit img img-reponsive " itemprop="image"></img>
             {% endif %}
         </div>
-        <div class="col-xs-9">
+        <div class="col-xs-9 more-headline">
             <small class="text-muted text-warning">({{ post.views_count }})</small>
             <strong itemprop="headline">{{ post.title }}</strong>
             <author itemprop="author" hidden>{{ post.author.get_full_name }}</author>

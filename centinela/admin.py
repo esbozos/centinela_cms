@@ -32,8 +32,11 @@ class PostAdmin(admin.ModelAdmin):
         if not hasattr(obj, 'author'):
             obj.author = request.user
         content = BeautifulSoup(obj.content)
-        img_link = content.find_all('img')[0].get('src')
-        obj.image = img_link
+        try:
+            img_link = content.find_all('img')[0].get('src')
+            obj.image = img_link
+        except:
+            obj.image = None
         obj.save()
 
 

@@ -12,6 +12,21 @@ a:hover{
     height: 20%;
 }
 
+#navbar-logo {
+    height: 50px;
+    width: 146px;
+    margin-top: -13px;
+}
+.gsc-search-box-tools .gsc-search-box .gsc-input {
+    font-size: 14px;
+}
+input.gsc-search-button.gsc-search-button-v2 {
+    padding: 6px;
+    height: 27px;
+    width: 27px;
+}
+}
+
 #main {
     z-index: 10;
 }
@@ -167,4 +182,16 @@ a:hover{
     height: auto;
     margin: 0px;
     max-height: 250px;
+}
+
+.img-fit {
+    object-fit: cover;
+    height: 55px;
+    width: 100%;
+    margin: -7px -12px;
+}
+
+.more-headline {
+   margin: -10px -24px;
+   min-height: 52px;
 }
