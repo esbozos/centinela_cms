@@ -42,7 +42,7 @@
                     </a>
                     <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished" hidden>{{ post.created_date }}</time>
                     <author  itemprop="author" hidden>{{ post.author.get_full_name }}</author>
-                    <div class="content" style="display: none;"> {{ post.content | safe | truncatechars_html:200 }}
+                    <div class="content"> {{ post.content | safe | truncatechars_html:160 }}
                     </div>
                     <span itemprop="mainEntityOfPage" class="label label-warning">{{ post.category.name }}</span>
                 </div>
