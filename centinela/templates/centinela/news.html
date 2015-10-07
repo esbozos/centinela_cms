@@ -27,7 +27,7 @@
                     {{ post.created_date }}
                 </time>
                 |
-                <author itemprop="author">{{ post.author.get_full_name }}</author>
+                <author class="text-muted small" itemprop="author">{{ post.author.get_full_name }}</author>
                 <div class="news_list_content">
                     {% if post.image %}
                     <img class="img img-responsive" src="{{ post.image }}" itemprop="image"/>
