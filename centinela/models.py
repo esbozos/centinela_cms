@@ -54,6 +54,13 @@ STATUS_CHOICES = (
     ('Inactive', _('Inactive')),
 )
 
+WIDGET_PLACES = (
+    ('top', _('Top')),
+    ('lateral', _('Lateral')),
+    ('after_post', _('After Post')),
+    ('before_post', _('Before Post')),
+    ('footer', _('Footer')),
+)
 
 '''
     Modelos
@@ -161,6 +168,7 @@ class Widgets(models.Model):
     status = models.CharField(_('status'), max_length=20, choices=STATUS_CHOICES, default=STATUS_CHOICES)
     until_date = models.DateTimeField(_('until'), default=timezone.now() + datetime.timedelta(days=settings.CENTINELA['DEFAULT_UNTIL_DAYS']))
     order = models.IntegerField(_('order'), default=10, blank=True)
+    place = models.CharField(_('Place'), max_length=30, choices=WIDGET_PLACES, default='lateral')
 
     def __unicode__(self):
         return self.title

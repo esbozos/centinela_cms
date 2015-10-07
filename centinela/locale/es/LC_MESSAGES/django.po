@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-17 13:12-0430\n"
+"POT-Creation-Date: 2015-10-07 16:47-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: centinela/admin.py:22
+msgid "mark as publish selected post"
+msgstr "Publicar entradas seleccionadas"
+
+#: centinela/admin.py:26
+msgid "mark as draft selected post"
+msgstr "Marcar como borrador"
+
+#: centinela/admin.py:30
+msgid "send to trash"
+msgstr "Enviar a la papelera"
 
 #: centinela/models.py:17
 msgid "Main Menu"
@@ -73,199 +85,222 @@ msgstr "Activo"
 msgid "Inactive"
 msgstr "Inactivo"
 
-#: centinela/models.py:64 centinela/models.py:173 centinela/models.py:191
+#: centinela/models.py:58
+msgid "Top"
+msgstr "Arriba"
+
+#: centinela/models.py:59
+msgid "Lateral"
+msgstr "En Barra lateral"
+
+#: centinela/models.py:60
+msgid "After Post"
+msgstr "Después de cada Entrada"
+
+#: centinela/models.py:61
+msgid "Before Post"
+msgstr "Antes de cada Entrada"
+
+#: centinela/models.py:62
+msgid "Footer"
+msgstr "Pie de página"
+
+#: centinela/models.py:71 centinela/models.py:186 centinela/models.py:204
 msgid "name"
 msgstr "Nombre"
 
-#: centinela/models.py:65 centinela/models.py:87
+#: centinela/models.py:72 centinela/models.py:99
 msgid "slug"
 msgstr "Slug"
 
-#: centinela/models.py:66
+#: centinela/models.py:73
 msgid "menu type"
 msgstr "Tipo de Menu"
 
-#: centinela/models.py:67
+#: centinela/models.py:74
 #, fuzzy
 #| msgid "order"
 msgid "menu_order"
 msgstr "Orden"
 
-#: centinela/models.py:76
+#: centinela/models.py:87
 msgid "category"
 msgstr "Categoria"
 
-#: centinela/models.py:77
+#: centinela/models.py:88
 msgid "categories"
 msgstr "Categorias"
 
-#: centinela/models.py:81 centinela/models.py:120
-msgid "author"
-msgstr "Autor"
-
-#: centinela/models.py:82 centinela/models.py:118 centinela/models.py:137
-#: centinela/models.py:153
+#: centinela/models.py:93 centinela/models.py:130 centinela/models.py:149
+#: centinela/models.py:165
 msgid "content"
 msgstr "Contenido"
 
-#: centinela/models.py:83 centinela/models.py:121 centinela/models.py:136
-#: centinela/models.py:156 centinela/models.py:176 centinela/models.py:192
+#: centinela/models.py:94 centinela/models.py:133 centinela/models.py:148
+#: centinela/models.py:168 centinela/models.py:189
 msgid "status"
 msgstr "Estado"
 
-#: centinela/models.py:84 centinela/models.py:132 centinela/models.py:151
+#: centinela/models.py:95 centinela/models.py:144 centinela/models.py:163
 msgid "title"
 msgstr "Título"
 
-#: centinela/models.py:85
+#: centinela/models.py:96
 msgid "type"
 msgstr "Tipo"
 
-#: centinela/models.py:86
+#: centinela/models.py:97 centinela/models.py:145
+msgid "image"
+msgstr "Imagen"
+
+#: centinela/models.py:98
 msgid "mime_type"
 msgstr "MIME TYPE"
 
-#: centinela/models.py:88
+#: centinela/models.py:100
 msgid "Menu Position"
 msgstr "Posición del Menu"
 
-#: centinela/models.py:89
+#: centinela/models.py:101
 msgid "url_path"
 msgstr "Ruta"
 
-#: centinela/models.py:90 centinela/models.py:119 centinela/models.py:134
-#: centinela/models.py:194
+#: centinela/models.py:102 centinela/models.py:131 centinela/models.py:146
+#: centinela/models.py:207
 msgid "created"
 msgstr "creado"
 
-#: centinela/models.py:91
+#: centinela/models.py:103
 msgid "updated"
 msgstr "actualizado"
 
-#: centinela/models.py:92
+#: centinela/models.py:104
 msgid "Allow comments?"
 msgstr "¿Permitir Comentarios?"
 
-#: centinela/models.py:93
+#: centinela/models.py:105
 msgid "comment_count"
 msgstr "Comentarios"
 
-#: centinela/models.py:95
+#: centinela/models.py:107
 msgid "Views Count"
 msgstr "Visitas"
 
-#: centinela/models.py:112
+#: centinela/models.py:124
 msgid "post"
 msgstr "Entrada"
 
-#: centinela/models.py:113
+#: centinela/models.py:125
 msgid "posts"
 msgstr "Entradas"
 
-#: centinela/models.py:127
+#: centinela/models.py:132
+msgid "author"
+msgstr "Autor"
+
+#: centinela/models.py:139
 #, fuzzy
 #| msgid "comment_count"
 msgid "comment"
 msgstr "Comentarios"
 
-#: centinela/models.py:128
+#: centinela/models.py:140
 #, fuzzy
 #| msgid "Allow comments?"
 msgid "comments"
 msgstr "¿Permitir Comentarios?"
 
-#: centinela/models.py:133
-msgid "image"
-msgstr "Imagen"
-
-#: centinela/models.py:135 centinela/models.py:155
+#: centinela/models.py:147 centinela/models.py:167
 msgid "link"
 msgstr "Enlace"
 
-#: centinela/models.py:137
+#: centinela/models.py:149
 msgid "Text to show over slider"
 msgstr "Texto a mostrar sobre el Slide"
 
-#: centinela/models.py:138 centinela/models.py:157
+#: centinela/models.py:150 centinela/models.py:169
 msgid "until"
 msgstr "Hasta"
 
-#: centinela/models.py:139 centinela/models.py:158
+#: centinela/models.py:151 centinela/models.py:170
 msgid "order"
 msgstr "Orden"
 
-#: centinela/models.py:140
+#: centinela/models.py:152
 msgid "location"
 msgstr "Ubicación"
 
-#: centinela/models.py:152
+#: centinela/models.py:164
 #, fuzzy
 #| msgid "image"
 msgid "Image"
 msgstr "Imagen"
 
-#: centinela/models.py:153
+#: centinela/models.py:165
 msgid "widget content, if image is set this will be hide"
 msgstr ""
 "Contenido del Widget, si se ha subido una imagen este texto no se mostrará"
 
-#: centinela/models.py:154
+#: centinela/models.py:166
 #, fuzzy
 #| msgid "created"
 msgid "creado"
 msgstr "creado"
 
-#: centinela/models.py:168
+#: centinela/models.py:171
+msgid "Place"
+msgstr ""
+
+#: centinela/models.py:181
 msgid "widget"
 msgstr "Widget"
 
-#: centinela/models.py:169
+#: centinela/models.py:182
 #, fuzzy
 #| msgid "widget"
 msgid "widgets"
 msgstr "Widget"
 
-#: centinela/models.py:174
+#: centinela/models.py:187
 msgid "html code"
 msgstr "Código HTML"
 
-#: centinela/models.py:175
+#: centinela/models.py:188
 msgid "js code"
 msgstr "Código JS"
 
-#: centinela/models.py:177
+#: centinela/models.py:190
 msgid "oder"
 msgstr "Orden"
 
-#: centinela/models.py:186
+#: centinela/models.py:199
 msgid "social share"
 msgstr "Social Share"
 
-#: centinela/models.py:187
+#: centinela/models.py:200
 msgid "social shares"
 msgstr "Social Shares"
 
-#: centinela/models.py:193
+#: centinela/models.py:205
+#, fuzzy
+#| msgid "Inactive"
+msgid "active"
+msgstr "Inactivo"
+
+#: centinela/models.py:206
 #, fuzzy
 #| msgid "name"
 msgid "file name"
 msgstr "Nombre de archivo"
 
-#: centinela/models.py:193
+#: centinela/models.py:206
 msgid "file located in bootstrap/css folder"
 msgstr "Archivo ubicado en la carpeta bootstrap/css"
 
-#: centinela/models.py:200
+#: centinela/models.py:213
 msgid "theme"
 msgstr "Tema"
 
-#: centinela/models.py:201
+#: centinela/models.py:214
 msgid "themes"
 msgstr "Temas"
-
-#, fuzzy
-msgid "Category"
-msgstr "Categoria"
-
-#~ msgid "vence"
-#~ msgstr "Vence"

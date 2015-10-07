@@ -1,15 +1,6 @@
 {% load staticfiles %}
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Sky2 Automatic Prospectiva -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-7406359102676080"
-                     data-ad-slot="9693123567"
-                     data-ad-format="auto"></ins>
-                <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-
+{% load centinela_column %}
+{% get_post_widgets 'top' %}
 {% if active_sliders_list %}
 <div id="banner">
         <ul>

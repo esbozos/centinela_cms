@@ -17,6 +17,18 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'menu_type')
 
 
+def make_published(modeladmin, request, queryset):
+    queryset.update(status='publish')
+make_published.short_description = _('mark as publish selected post')
+
+def make_draft(modeladmin, request, queryset):
+    queryset.update(status='draft')
+make_draft.short_description = _('mark as draft selected post')
+
+def make_trash(modeladmin, request, queryset):
+    queryset.update(status='trash')
+make_trash.short_description = _('send to trash')
+
 class PostAdmin(admin.ModelAdmin):
     model = Post
     fieldsets = [
@@ -26,6 +38,7 @@ class PostAdmin(admin.ModelAdmin):
     inlines = []
     list_display = ('title', 'author', 'status', 'category', 'created_date', 'url_link', 'type', 'views_count', 'menu_order')
     list_filter = ['created_date', 'category', 'type', 'status']
+    actions = [make_published, make_draft, make_trash]
     search_fields = ['title', 'content']
 
     def save_model(self, request, obj, form, change):
@@ -61,11 +74,11 @@ class SliderAdmin(admin.ModelAdmin):
 class WidgetsAdmin(admin.ModelAdmin):
     model = Widgets
     fieldsets = [
-        ('Slider', {'fields':['title', 'image_file', 'content']}),
+        ('Slider', {'fields':['title', 'image_file', 'content', 'place']}),
         ('options', {'fields': ['link_target', 'order', 'status', 'until_date']})
     ]
-    list_display = ('title', 'link_target', 'image_file', 'until_date', 'created_date', 'is_active', 'order')
-    list_filter = ('status', 'created_date')
+    list_display = ('title', 'link_target', 'image_file', 'place', 'until_date', 'created_date', 'is_active', 'order')
+    list_filter = ('status', 'created_date', 'place')
     search_fields = ('title', 'content', 'link_target')
 
 

@@ -16,12 +16,17 @@ def get_more_read():
     return {'more_read': more_read, 'more_recent': more_recent, 'title': 'Lo más Leido', 'category': 'all'}
 
 
-@register.inclusion_tag("centinela/widgets.html")
-def get_widgets():
+@register.inclusion_tag("centinela/lateral_widgets.html")
+def get_lateral_widgets():
     now = timezone.now()
-    widgets = Widgets.objects.filter(until_date__gt=now).filter(status='active').order_by('order')
+    widgets = Widgets.objects.filter(until_date__gt=now).filter(status='active', place='lateral').order_by('order')
     return {'widgets': widgets}
 
+@register.inclusion_tag("centinela/widgets.html")
+def get_post_widgets(place):
+    now = timezone.now()
+    widgets = Widgets.objects.filter(until_date__gt=now).filter(status='active', place=place).order_by('order')
+    return {'widgets': widgets}
 
 @register.inclusion_tag("centinela/more_posts.html")
 def get_more_in_category(category):
