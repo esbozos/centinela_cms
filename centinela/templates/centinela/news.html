@@ -23,8 +23,8 @@
 
                 <h2 itemprop="headline"><a href="{% url 'centinela:detail' post.slug post.id  %}">{{ post.title }} </a>
                 </h2>
-                <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished">{{
-                    post.created_date }}
+                <time datetime="{{ post.created_date|date:'c' }}" class="text-muted small" itemprop="datePublished">
+                    {{ post.created_date }}
                 </time>
                 |
                 <author itemprop="author">{{ post.author.get_full_name }}</author>
