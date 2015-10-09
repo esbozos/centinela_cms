@@ -4,7 +4,7 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.template import defaultfilters
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
@@ -90,7 +90,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     author = models.ForeignKey(User)
-    content = RichTextField(_('content'))
+    content = RichTextUploadingField(_('content'))
     status = models.CharField(_('status'), max_length=20, choices=POST_STATUS_CHOICES, default=POST_STATUS_CHOICES[0][0])
     title = models.CharField(_('title'), max_length=250)
     type = models.CharField(_('type'), max_length=20, choices=POST_TYPE_CHOICES, default=POST_TYPE_CHOICES[1][0])
