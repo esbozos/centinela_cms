@@ -41,7 +41,7 @@ def detail(request, slug, post_id):
 
 def page(request, category, slug, post_id):
     try:
-        p = Post.objects.get(pk=post_id)
+        p = Post.objects.get(pk=post_id, status='publish')
     except Post.DoesNoExist:
         raise Http404("Page does not exist")
     p.views_count += 1
