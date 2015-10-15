@@ -6,11 +6,12 @@
    {{ post.title }} - {{ block.super }}
 {% endblock %}
 {% block meta %}
-<meta property="og:url"                content="{{ site.SITE_URL }}{{ request.get_full_path|urlencode }}" />
-<meta property="og:type"               content="article" />
-<meta property="og:title"              content="{{ post.title }}" />
-<meta property="og:description"        content="{{ post.content | striptags | truncatechars_html:200 }}" />
-<meta property="og:image"              content="{{ site.SITE_URL }}{{ post.image }}" />
+<meta property="fb:app_id" content="936531743054924"/>
+<meta property="og:url"    content="{{ site.SITE_URL }}{{ request.get_full_path|urlencode }}" />
+<meta property="og:type"   content="article" />
+<meta property="og:title"  content="{{ post.title }}" />
+<meta property="og:description"  content="{{ post.content | striptags | truncatechars_html:200 }}" />
+<meta property="og:image"  content="{{ site.SITE_URL }}{{ post.image }}" />
 {% endblock %}
 {% block content %}
 <div class="banner container-fluid col-md-10 col-md-offset-1" style="">
