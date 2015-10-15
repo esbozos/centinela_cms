@@ -2,7 +2,6 @@
 {% load centinela_column %}
 {% load centinela_socialshare %}
 {% load staticfiles %}
-<!-- # TODO: add form to comments, or facebook plugin? -->
 {% block title %}
    {{ post.title }} - {{ block.super }}
 {% endblock %}
@@ -10,8 +9,8 @@
 <meta property="og:url"                content="{% url 'centinela:detail' post.slug post.id %}" />
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="{{ post.title }}" />
-<meta property="og:description"        content="{{ post.content | striptags | truncatechars_html:100 }}" />
-<meta property="og:image"              content="" />
+<meta property="og:description"        content="{{ post.content | striptags | truncatechars_html:200 }}" />
+<meta property="og:image"              content="{{ post.image }}" />
 {% endblock %}
 {% block content %}
 <div class="banner container-fluid col-md-10 col-md-offset-1" style="">

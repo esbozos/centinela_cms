@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load i18n %}
 {% block content %}
 {% include "centinela/sliders.html" %}
 <div class="navIni">
@@ -7,15 +8,15 @@
         <div class="">
             <div class="col-xs-12 col-md-8">
                 <ul class="nav nav-pills">
-                    <li role="presentation" title="Inicio"><a href="#">
+                    <li role="presentation" title="{% trans 'home' %}"><a href="#">
                         <span class="fa fa-home"></span>
                         <span class="hidden-sm hidden-xs">Inicio</span>
                     </a></li>
-                    <li role="presentation" title="Noticias"><a href="#news">
+                    <li role="presentation" title="{% trans news %}"><a href="#news">
                         <span class="fa fa-newspaper-o"></span>
                         <span class="hidden-sm hidden-xs">Noticias</span>
                     </a></li>
-                    <li role="presentation" title="Sistemas"><a href="#system">
+                    <li role="presentation" title="{% trans systems %}"><a href="#systems">
                         <span class="fa fa-link"></span>
                         <span class="hidden-sm hidden-xs">Sistemas</span>
                     </a></li>
@@ -57,18 +58,18 @@
     </a>
     {% endfor %}
     <div class="col-xs-12 text-center">
-        <a href="{% url 'centinela:news' %}"><h1 style="font-family: Lobster, sans-serif;">Más en Noticias</h1></a>
+        <a href="{% url 'centinela:news' %}"><h1 style="font-family: Lobster, sans-serif;">{% trans 'more_news' %}</h1></a>
     </div>
 </div>
 {% else %}
-<p>No post are available. </p>
+<p>{% trans 'No post are available.' %}</p>
 {% endif %}
 
 <div id="systems" class="container-fluid wraper">
     <div class="view">
         <hr class="feature-divider">
         <div class="col-xs-12 text-center">
-            <a href="{% url 'centinela:news' %}"><h1 class="snood" style="font-family: Lobster, sans-serif;">Nuestros Servicios</h1></a>
+            <a href="{% url 'centinela:news' %}"><h1 class="snood" style="font-family: Lobster, sans-serif;">{% trans 'our_services' %}</h1></a>
         </div>
         <div class="col-xs-6 col-md-3">
             <div class="thumbnail">
@@ -77,8 +78,8 @@
                      data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
                 <div class="caption">
                     <h3>Priority Report</h3>
-                    <p>Proximamente disponible.</p>
-                    <p><a href="#" class="btn btn-primary disable" role="button">Volver</a></p>
+                    <p>{% trans 'Coming soon' %}</p>
+                    <p><a href="#" class="btn btn-primary disable" role="button">{% trans 'back' %}</a></p>
                 </div>
             </div>
         </div>
@@ -88,8 +89,8 @@
                      data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
                 <div class="caption">
                     <h3>Aeon</h3>
-                    <p>Proximamente disponible.</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Volver</a>
+                    <p>{% trans 'Coming soon' %}</p>
+                    <p><a href="#" class="btn btn-primary" role="button">{% trans 'back' %}</a>
                     </p>
                 </div>
             </div>

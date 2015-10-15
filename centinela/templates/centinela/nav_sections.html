@@ -1,9 +1,10 @@
+{% load i18n %}
 {% load centinela_menu %}
 {% get_sections as sections %}
 <div class="col-md-offset-1">
 <ul class="nav nav-pills">
     <li {% if category == Null   %}class="active"{% endif %}">
-        <a href="{% url 'centinela:news' %}">Noticias</a>
+        <a href="{% url 'centinela:news' %}">{% trans 'News' %}</a>
     </li>
 {% for s in sections %}
     <li {% if category == s.slug %}class="active"{% endif %}

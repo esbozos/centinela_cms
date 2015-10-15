@@ -1,3 +1,4 @@
+{% load i18n %}
 <nav>
     <ul class="pagination">
         {% if page_obj.has_previous %}
@@ -22,5 +23,5 @@
     </ul>
 </nav>
 <span class="current">
-	Página {{ page_obj.number }} of {{ paginator.num_pages }}.
+	{% trans 'Page' %} {{ page_obj.number }} of {{ paginator.num_pages }}.
 </span>

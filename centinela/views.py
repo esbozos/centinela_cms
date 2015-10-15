@@ -1,11 +1,8 @@
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import get_object_or_404, render, Http404, render_to_response
 from django.core.urlresolvers import reverse
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views import generic
 from django.conf import settings
-from django.utils import timezone
-import datetime
+
 
 from .models import Post, Category, Slider, Widgets
 
@@ -29,7 +26,7 @@ class IndexView(generic.ListView):
 
 def detail(request, slug, post_id):
     try:
-        p = Post.objects.get(pk=post_id)
+        p = Post.objects.get(pk=post_id, status='publish')
     except Post.DoesNotExist:
         raise Http404("Post does not exist")
     p.views_count +=1
@@ -99,3 +96,17 @@ class CategoryPostList(generic.ListView):
     def get_queryset(self):
         self.category = get_object_or_404(Category, slug=self.kwargs['category'])
         return Post.objects.filter(category=self.category, type='post', status='publish').order_by('-created_date')
+
+
+def handler404(request):
+    response = render_to_response('404.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
+
+
+def handler500(request):
+    response = render_to_response('500.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 500
+    return response

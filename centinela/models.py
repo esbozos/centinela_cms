@@ -51,7 +51,7 @@ COMMENT_STATUS_CHOICES = (
 # opciones de estado genericas
 STATUS_CHOICES = (
     ('active', _('Active')),
-    ('Inactive', _('Inactive')),
+    ('inactive', _('Inactive')),
 )
 
 WIDGET_PLACES = (
@@ -129,7 +129,7 @@ class Comments(models.Model):
     post = models.ForeignKey(Post)
     content = models.TextField(_('content'))
     created_date = models.DateTimeField(_('created'), default= timezone.now)
-    author = models.CharField(_('author'), max_length=250)
+    author = models.CharField(_('Author'), max_length=250)
     status = models.CharField(_('status'), max_length=20, choices=COMMENT_STATUS_CHOICES, default=COMMENT_STATUS_CHOICES[0][0])
 
     def __unicode__(self):
@@ -159,11 +159,12 @@ class Slider(models.Model):
         return self.until_date >= now and self.status == 'active'
 
 
+
 class Widgets(models.Model):
     title = models.CharField(_('title'), max_length=250)
     image_file = models.ImageField(_('Image'), upload_to='linksImages', blank=True)
     content = models.TextField(_('content'), blank=True, help_text=_('widget content, if image is set this will be hide'))
-    created_date = models.DateTimeField(_('creado'), default=timezone.now)
+    created_date = models.DateTimeField(_('Created'), default=timezone.now)
     link_target = models.CharField(_('link'), max_length=500, blank=True)
     status = models.CharField(_('status'), max_length=20, choices=STATUS_CHOICES, default=STATUS_CHOICES)
     until_date = models.DateTimeField(_('until'), default=timezone.now() + datetime.timedelta(days=settings.CENTINELA['DEFAULT_UNTIL_DAYS']))
@@ -202,7 +203,7 @@ class SocialShare(models.Model):
 
 class Theme(models.Model):
     name = models.CharField(_('name'), max_length=50)
-    status = models.BooleanField(_('active'), default=False)
+    status = models.CharField(_('status'), max_length=10, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
     file_name = models.CharField(_('file name'), max_length=100, help_text=_('file located in bootstrap/css folder'))
     created_date = models.DateTimeField(_('created'), default=timezone.now)
 

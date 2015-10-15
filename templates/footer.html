@@ -1,23 +1,20 @@
+{% load i18n %}
 {% load centinela_column %}
 <footer>
         <div class="container">
-
             <div class="col-xs-12 text-center">
                  <hr class="featurette-divider">
                 {% get_post_widgets 'footer' %}
             <div itemscope itemtype="http://schema.org/Organization">
-                <span itemprop="name">Prospectiva Venezuela C.A.</span>
-
+                <span itemprop="name">Prospectiva Venezuela C.A.</span> - J406539740 -<span>{% trans 'All rights reserved' %} 2012-2015</span>
                 <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                     <span itemprop="postalCode">1010</span>
                     <span itemprop="addressLocality">Caracas, Venezuela</span>
                 </div>
                 Tel:<span itemprop="telephone">( 0212) 9150878 </span>
                 E-mail: <span itemprop="email">contacto(at)prospeciva.com.ve</span>
-                <span>Todos los derechos reservados 2015</span>
-
                 <div>
-                    <span>Desarrollado por Cúbico - Prospectiva Venezuela</span>
+                    <span>{% trans 'Developed by' %} Cúbico - <a title="Prospectiva Venezuela" href="http://www.prospectiva.com.ve">Prospectiva Venezuela</a></span>
                 </div>
             </div>
             </div>

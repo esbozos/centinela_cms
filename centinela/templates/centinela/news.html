@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load centinela_column %}
 {% load staticfiles %}
 {% block content %}
@@ -63,7 +64,7 @@
         </div>
         {% endif %}
         {% empty %}
-        <h2>No hay entradas que mostar</h2>
+        <h2>{% trans 'No post are available.' %}</h2>
         {% endfor %}
     </div>
     {# close second column on news #}
@@ -78,6 +79,5 @@
     {% get_lateral_widgets %}
 </div>
 {% endif %}
-
 {% endblock %}
 

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load centinela_column %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+<div class="banner col-md-10 col-md-offset-1" style="">
+    {% include "centinela/banners.html" %}
+</div>
+
+{% if site.LATERAL_BAR == 'LEFT' %}
+<div id="lateral" class="col-md-3 col-sm-12">
+    {% get_more_read %}
+    {% get_lateral_widgets %}
+</div>
+{% endif %}
+<div id="main" class="{% if site.LATERAL_BAR %} col-md-8 {% endif %} col-xs-12">
+    {% include "centinela/nav_sections.html" %}
+    <div class="col-md-8 col-md-offset-1 col-sm-12">
+        {% trans "404_message" %}
+    </div>
+    <div>
+        <img class="img img-responsive" src="{% static 'images/404_error_centinela_prospectiva.png' %}" alt="Not found">
+    </div>
+</div>
+{% if site.LATERAL_BAR == 'RIGHT' %}
+<div id="lateral" class="col-md-3 col-sm-12">
+    {% get_more_read %}
+    {% get_lateral_widgets %}
+</div>
+{% endif %}
+
+{% endblock %}

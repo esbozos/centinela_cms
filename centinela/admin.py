@@ -16,7 +16,7 @@ class CategoryAdmin(admin.ModelAdmin):
     ]
     list_display = ('name', 'slug', 'menu_type')
 
-
+# post admin massive functions
 def make_published(modeladmin, request, queryset):
     queryset.update(status='publish')
 make_published.short_description = _('mark as publish selected post')
@@ -59,6 +59,18 @@ class CommentsAdmin(admin.ModelAdmin):
     list_filter = ['status']
     search_fields = ['content', 'author']
 
+# Slider Admin massive functions
+
+
+def make_inactive(modeladmin, request, queryset):
+    queryset.update(status='inactive')
+make_inactive.short_description = _('mark as inactive')
+
+
+def make_active(modeladmin, request, queryset):
+    queryset.update(status='active')
+make_active.short_description = _('mark as active')
+
 
 class SliderAdmin(admin.ModelAdmin):
     model = Slider
@@ -68,6 +80,7 @@ class SliderAdmin(admin.ModelAdmin):
     ]
     list_display = ('title', 'link_target', 'image_file', 'until_date', 'location', 'is_active', 'order')
     list_filter = ('status', 'created_date', 'location')
+    actions = [make_active, make_inactive]
     search_fields = ('title', 'content', 'link_target')
 
 
@@ -79,6 +92,7 @@ class WidgetsAdmin(admin.ModelAdmin):
     ]
     list_display = ('title', 'link_target', 'image_file', 'place', 'until_date', 'created_date', 'is_active', 'order')
     list_filter = ('status', 'created_date', 'place')
+    actions = [make_active, make_inactive]
     search_fields = ('title', 'content', 'link_target')
 
 
@@ -88,6 +102,8 @@ class SocialShareAdmin(admin.ModelAdmin):
         ('none', {'fields':['name', 'html_code', 'js_code']}),
         ('options', {'fields': ['status', 'order']})
     ]
+    actions = [make_active, make_inactive]
+
 
 class ThemeAdmin(admin.ModelAdmin):
     model = Theme
@@ -96,6 +112,7 @@ class ThemeAdmin(admin.ModelAdmin):
     ]
     list_display = ('name', 'status', 'created_date', 'file_name')
     list_filter = ('status',)
+    actions = [make_active, make_inactive]
 
 
 admin.site.register(Post, PostAdmin)
