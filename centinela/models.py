@@ -166,7 +166,7 @@ class Widgets(models.Model):
     content = models.TextField(_('content'), blank=True, help_text=_('widget content, if image is set this will be hide'))
     created_date = models.DateTimeField(_('Created'), default=timezone.now)
     link_target = models.CharField(_('link'), max_length=500, blank=True)
-    status = models.CharField(_('status'), max_length=20, choices=STATUS_CHOICES, default=STATUS_CHOICES)
+    status = models.CharField(_('status'), max_length=20, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
     until_date = models.DateTimeField(_('until'), default=timezone.now() + datetime.timedelta(days=settings.CENTINELA['DEFAULT_UNTIL_DAYS']))
     order = models.IntegerField(_('order'), default=10, blank=True)
     place = models.CharField(_('Place'), max_length=30, choices=WIDGET_PLACES, default='lateral')
@@ -187,7 +187,7 @@ class SocialShare(models.Model):
     name = models.CharField(_('name'), max_length=100)
     html_code = models.TextField(_('html code'), blank=True)
     js_code = models.TextField(_('js code'), blank=True)
-    status = models.CharField(_('status'), max_length=20, choices=STATUS_CHOICES, default=STATUS_CHOICES)
+    status = models.CharField(_('status'), max_length=20, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
     order = models.IntegerField(_('oder'), default=10)
 
     def __unicode__(self):
@@ -203,7 +203,7 @@ class SocialShare(models.Model):
 
 class Theme(models.Model):
     name = models.CharField(_('name'), max_length=50)
-    status = models.CharField(_('status'), max_length=10, choices=STATUS_CHOICES, default=STATUS_CHOICES)
+    status = models.CharField(_('status'), max_length=10, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
     file_name = models.CharField(_('file name'), max_length=100, help_text=_('file located in bootstrap/css folder'))
     created_date = models.DateTimeField(_('created'), default=timezone.now)
 
