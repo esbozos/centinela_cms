@@ -12,7 +12,7 @@ def get_title():
 
 @register.assignment_tag
 def get_theme():
-    t = Theme.objects.filter(status=True)[:1]
+    t = Theme.objects.filter(status='active')[:1]
     file_name = 'bootstrap.min.css'
     for th in t:
         file_name = th.file_name
