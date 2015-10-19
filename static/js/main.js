@@ -103,7 +103,7 @@ jQuery(document).ready(function ($) {
             var li = $('#banner ul li:first-child').appendTo('#banner ul');
             $('#banner li.active').removeClass('active');
             li.addClass('active');
-            li.show("slow");
+            li.animate({"left":"0px"}, "slow");
             li.siblings().hide();
             $('#banner ul').css('left', '');
 

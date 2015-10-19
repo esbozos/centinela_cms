@@ -17,17 +17,22 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'menu_type')
 
 # post admin massive functions
+
+
 def make_published(modeladmin, request, queryset):
     queryset.update(status='publish')
 make_published.short_description = _('mark as publish selected post')
+
 
 def make_draft(modeladmin, request, queryset):
     queryset.update(status='draft')
 make_draft.short_description = _('mark as draft selected post')
 
+
 def make_trash(modeladmin, request, queryset):
     queryset.update(status='trash')
 make_trash.short_description = _('send to trash')
+
 
 class PostAdmin(admin.ModelAdmin):
     model = Post
@@ -59,7 +64,7 @@ class CommentsAdmin(admin.ModelAdmin):
     list_filter = ['status']
     search_fields = ['content', 'author']
 
-# Slider Admin massive functions
+# Active & inactive Admin massive functions
 
 
 def make_inactive(modeladmin, request, queryset):
