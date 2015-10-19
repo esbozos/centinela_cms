@@ -73,9 +73,6 @@ class Category(models.Model):
     menu_type = models.CharField(_('menu type'), max_length=10, choices=CATEGORIES_MENU_TYPE, default=CATEGORIES_MENU_TYPE[0][0])
     menu_order = models.IntegerField(_('menu_order'), default=10)
 
-    def __unicode__(self):
-        return self.name
-
     def __str__(self):
         return self.name
 
@@ -106,7 +103,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category)
     views_count = models.IntegerField(_('Views Count'),default=0)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def was_published_recently(self):
@@ -132,7 +129,7 @@ class Comments(models.Model):
     author = models.CharField(_('Author'), max_length=250)
     status = models.CharField(_('status'), max_length=20, choices=COMMENT_STATUS_CHOICES, default=COMMENT_STATUS_CHOICES[0][0])
 
-    def __unicode__(self):
+    def __str__(self):
         return self.content
 
     class Meta:
@@ -151,7 +148,7 @@ class Slider(models.Model):
     order = models.IntegerField(_('order'), default=10, blank=True)
     location = models.CharField(_('location'), max_length=20, choices=SLIDER_LOCATION_CHOICES, default=SLIDER_LOCATION_CHOICES[0][0])
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def is_active(self):
@@ -171,7 +168,7 @@ class Widgets(models.Model):
     order = models.IntegerField(_('order'), default=10, blank=True)
     place = models.CharField(_('Place'), max_length=30, choices=WIDGET_PLACES, default='lateral')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def is_active(self):
@@ -190,7 +187,7 @@ class SocialShare(models.Model):
     status = models.CharField(_('status'), max_length=20, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
     order = models.IntegerField(_('oder'), default=10)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def is_active(self):
@@ -207,7 +204,7 @@ class Theme(models.Model):
     file_name = models.CharField(_('file name'), max_length=100, help_text=_('file located in bootstrap/css folder'))
     created_date = models.DateTimeField(_('created'), default=timezone.now)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     class Meta:
