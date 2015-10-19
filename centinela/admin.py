@@ -107,6 +107,8 @@ class SocialShareAdmin(admin.ModelAdmin):
         ('none', {'fields':['name', 'html_code', 'js_code']}),
         ('options', {'fields': ['status', 'order']})
     ]
+    list_display = ('name', 'status')
+    list_filter = ('status',)
     actions = [make_active, make_inactive]
 
 
