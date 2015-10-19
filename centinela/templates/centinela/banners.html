@@ -3,12 +3,12 @@
 {% get_post_widgets 'top' %}
 {% if active_sliders_list %}
 <div id="banner">
-        <ul>
+        <div id="banner-content">
             {% for slider in active_sliders_list %}
             {% if slider.is_active %}
-                <li {% if forloop.first %}
-                        class="active"
-                    {% endif %} data-count="{{ forloop.counter }}">
+                <div class="banner-item {% if forloop.first %}
+                        active
+                    {% endif %}" data-count="{{ forloop.counter }}">
                     {% if slider.link_target %}
                         <a href="{{ slider.link_target }}" target="_blank">
                         <img src="/media/{{ slider.image_file }}" />
@@ -16,10 +16,10 @@
                     {% else %}
                         <img src="/media/{{ slider.image_file }}" />
                     {% endif %}
-                </li>
+                </div>
             {% endif %}
       {% endfor %}
-    </ul>
+    </div>
 </div>
 {% endif %}
 
