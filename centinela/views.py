@@ -62,7 +62,7 @@ class NewsView(generic.ListView):
 
     def get_context_data(self):
         context = super(NewsView, self).get_context_data()
-        middle = round(settings.CENTINELA['PAGINATE_BY'] / 4,0)
+        middle = round(settings.CENTINELA['PAGINATE_BY'] / 3, 0)
         context['midle'] = middle
         context['site'] = settings.CENTINELA
         sliders = Slider.objects.filter(location='news').order_by('order')
