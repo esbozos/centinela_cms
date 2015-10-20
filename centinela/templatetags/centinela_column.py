@@ -36,7 +36,20 @@ def get_more_in_category(category):
     more_recent = Post.objects.filter(status='publish', type='post').order_by('-created_date')[:settings.CENTINELA['MAX_MORE_IN_CATEGORY']]
     return {'more_read': more_read,'more_recent': more_recent, 'category': category.name}
 
+
 @register.filter(name='getThumbnail')
 def get_thumbnail(value):
     filename, file_extension = os.path.splitext(value)
     return filename + '_thumb' + file_extension
+
+
+@register.filter(name='getMediumSize')
+def get_thumbnail(value):
+    filename, file_extension = os.path.splitext(value)
+    return filename + '_medium' + file_extension
+
+
+@register.filter(name='get600Size')
+def get_thumbnail(value):
+    filename, file_extension = os.path.splitext(value)
+    return filename + '_600' + file_extension

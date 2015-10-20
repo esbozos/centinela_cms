@@ -45,7 +45,8 @@
      </div>
     <hr class="feature-divider>">
     {% if post.image %}
-    <image src="{{ post.image }}" itemprop="image" hidden></image>
+    <!-- TODO: Link to original image -->
+    <image src="{{ post.image|get600Size }}" itemprop="image" hidden></image>
     {% endif %}
 <div class="content" itemprop="articleBody">
     <p>{{ post.content | safe }}</p>

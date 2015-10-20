@@ -4,6 +4,8 @@ from .models import Post, Category, Comments, Slider, Widgets, SocialShare, Them
 from django.conf import settings
 from bs4 import BeautifulSoup
 from django.utils.translation import ugettext_lazy as _
+import os
+from PIL import Image
 
 
 class MyAdminSite(admin.AdminSite):
@@ -56,6 +58,14 @@ class PostAdmin(admin.ModelAdmin):
             obj.image = img_link
         except:
             obj.image = None
+        if obj.image:
+            medium, ext = os.path.splitext(img_link)
+            imm = Image.open(settings.BASE_DIR + img_link)
+            img = Image.open(settings.BASE_DIR + img_link)
+            imm.thumbnail((200,200), Image.ANTIALIAS)
+            imm.save(settings.BASE_DIR + medium + '_medium' + ext)
+            img.thumbnail((600,600), Image.ANTIALIAS)
+            img.save(settings.BASE_DIR + medium + '_600' + ext)
         obj.save()
 
 
