@@ -32,6 +32,8 @@
                 <div class="news_list_content">
                     {% if post.image %}
                     <img class="img img-responsive" src="{{ post.image }}" itemprop="image"/>
+                    {% else %}
+                        <img class="img img-responsive" src="{% static 'logo.png' %}" itemprop="image" />
                     {% endif %}
                     <div class="content" itemprop="description"> {{ post.content | safe | truncatechars_html:300 }}
                     </div>
