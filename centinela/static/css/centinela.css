@@ -35,7 +35,7 @@ input.gsc-search-button.gsc-search-button-v2 {
 }
 
 #lateral {
-    z-index: -10;
+    z-index: 1;
 }
 
 #news .news_list_item{
@@ -159,6 +159,7 @@ input.gsc-search-button.gsc-search-button-v2 {
     border:1px solid #333;
     position:relative;
     overflow:hidden;
+    z-index: 0;
 }
 
 #banner-content {
