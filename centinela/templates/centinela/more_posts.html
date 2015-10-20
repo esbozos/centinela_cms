@@ -13,6 +13,8 @@
             <div class="col-xs-3">
                 {% if post.image %}
                 <img src="{{ post.image }}" class="img-fit img img-responsive" itemprop="image"></img>
+                {% else %}
+                        <img class="img img-responsive" src="{% static 'logo.png' %}" itemprop="image" />
                 {% endif %}
             </div>
             <div class="col-xs-9 more-headline">
@@ -33,6 +35,8 @@
         <div class="col-xs-3">
             {% if post.image %}
             <img src="{{ post.image }}" class="img-fit img img-reponsive " itemprop="image"></img>
+            {% else %}
+                        <img class="img img-responsive" src="{% static 'logo.png' %}" itemprop="image" />
             {% endif %}
         </div>
         <div class="col-xs-9 more-headline">
