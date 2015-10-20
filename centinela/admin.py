@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.admin.models import LogEntry, DELETION
 from .models import Post, Category, Comments, Slider, Widgets, SocialShare, Theme
 from django.conf import settings
 from bs4 import BeautifulSoup
@@ -122,6 +123,32 @@ class ThemeAdmin(admin.ModelAdmin):
     actions = [make_active, make_inactive]
 
 
+class LogEntryAdmin(admin.ModelAdmin):
+    model = LogEntry
+
+    date_hierarchy = 'action_time'
+
+    list_filter = [
+        'user',
+        'content_type',
+        'action_flag'
+    ]
+
+    search_fields = [
+        'object_repr',
+        'change_message'
+    ]
+
+
+    list_display = [
+        'action_time',
+        'user',
+        'content_type',
+        'action_flag',
+        'change_message',
+    ]
+
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Comments, CommentsAdmin)
@@ -129,3 +156,4 @@ admin.site.register(Slider, SliderAdmin)
 admin.site.register(Widgets, WidgetsAdmin)
 admin.site.register(SocialShare, SocialShareAdmin)
 admin.site.register(Theme, ThemeAdmin)
+admin.site.register(LogEntry, LogEntryAdmin)
