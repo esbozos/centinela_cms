@@ -51,7 +51,7 @@
             <div class="box10">
                 <div class="news_list_content">
                     {% if post.image %}
-                        <img class="img img-responsive" src="{{ post.image }}" itemprop="image"/>
+                        <img class="img img-responsive" src="{{ post.image|getThumbnail }}" itemprop="image"/>
                     {% else %}
                         <img class="img img-responsive" src="{% static 'logo.png' %}" itemprop="image" />
                     {% endif %}

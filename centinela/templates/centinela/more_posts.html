@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load staticfiles %}
+{% load centinela_column %}
 {% if category == 'all' %}
 {% else %}
 <h3 class="text-warning">{{ category }}</h3>
@@ -13,7 +14,7 @@
         <div class="row">
             <div class="col-xs-3">
                 {% if post.image %}
-                <img src="{{ post.image }}" class="img-fit img img-responsive" itemprop="image"></img>
+                <img src="{{ post.image|getThumbnail }}" class="img-fit img img-responsive" itemprop="image"></img>
                 {% else %}
                         <img class="img img-responsive" src="{% static 'logo.png' %}" itemprop="image" />
                 {% endif %}
@@ -35,7 +36,7 @@
         <div class="row">
         <div class="col-xs-3">
             {% if post.image %}
-            <img src="{{ post.image }}" class="img-fit img img-reponsive " itemprop="image"></img>
+            <img src="{{ post.image|getThumbnail }}" class="img-fit img img-reponsive " itemprop="image"></img>
             {% else %}
                         <img class="img img-responsive" src="{% static 'logo.png' %}" itemprop="image" />
             {% endif %}

@@ -4,6 +4,7 @@ from django import template
 from django.conf import settings
 from django.utils import timezone
 import datetime
+import os
 
 register = template.Library()
 
@@ -34,3 +35,8 @@ def get_more_in_category(category):
     more_read = Post.objects.filter(created_date__gt=om, views_count__gt=0, category=category, status='publish').order_by('-views_count')[:settings.CENTINELA['MAX_MORE_IN_CATEGORY']]
     more_recent = Post.objects.filter(status='publish', type='post').order_by('-created_date')[:settings.CENTINELA['MAX_MORE_IN_CATEGORY']]
     return {'more_read': more_read,'more_recent': more_recent, 'category': category.name}
+
+@register.filter(name='getThumbnail')
+def get_thumbnail(value):
+    filename, file_extension = os.path.splitext(value)
+    return filename + '_thumb' + file_extension
