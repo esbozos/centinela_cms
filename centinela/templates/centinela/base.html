@@ -38,7 +38,7 @@
 </head>
 <body>
 {% block nav %}
-{% include "navbar.html" %}
+{% include "centinela/navbar.html" %}
 {% endblock %}
 <div class="container-fluid">
     <div class="row">
@@ -47,7 +47,8 @@
     </div>
     <div class="row">
         {% block footer %}
-        {% include "footer.html" %}
+        {% include "centinela/footer.html" %}
+        {% include "centinela/brandprint.html" %}
         {% endblock %}
     </div>
 </div>

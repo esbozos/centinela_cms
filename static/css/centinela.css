@@ -16,9 +16,9 @@ a:hover{
 
 
 #navbar-logo {
-    height: 50px;
-    width: 146px;
-    margin-top: -13px;
+    height: 40px;
+    width: 117px;
+    margin-top: -8px;
 }
 .gsc-search-box-tools .gsc-search-box .gsc-input {
     font-size: 14px;
@@ -35,7 +35,7 @@ input.gsc-search-button.gsc-search-button-v2 {
 }
 
 #lateral {
-    z-index: 0;
+    z-index: 1;
 }
 
 #news .news_list_item{
@@ -159,6 +159,7 @@ input.gsc-search-button.gsc-search-button-v2 {
     border:1px solid #333;
     position:relative;
     overflow:hidden;
+    z-index: 0;
 }
 
 #banner-content {
